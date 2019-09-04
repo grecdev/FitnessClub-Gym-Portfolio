@@ -1,0 +1,61 @@
+footer {
+	background: $dark-primary;
+	color: $white;
+	padding: 1.5rem 0;
+
+	.footer-container {
+		@include flex(row, space-between, center);
+		flex-wrap: wrap;
+	}
+
+	.footer-box:nth-child(1) {
+		@include flex(row, space-between, flex-start);
+		width: 50%;
+
+		ul {
+			@include font(1.2rem, inherit, 300);
+	
+			a { transition: all 100ms ease-in-out }
+	
+			a:hover { color: $green-eton }	
+		}
+	}
+
+	.footer-box:nth-child(2) {
+		@include flex(column, flex-start, space-between);
+
+		a {
+			padding: .5rem 1rem;
+			font-size: 1.2rem;
+
+			i {
+				margin: 0;
+				margin-right: .5rem;
+				font-size: 1.3rem;
+			}
+		}
+	}
+
+	.footer-social {
+		width: 100%;
+		margin-top: 1rem;
+		font-size: 2rem;
+
+		span {
+			margin: 0 1rem;
+			transition: all 200ms ease-in-out;
+
+			&:nth-child(1):hover { color: #1da1f2 }
+			&:nth-child(2):hover { color: #3e5c99 }
+			&:nth-child(4):hover { color: $times-red }
+		}
+
+		.instagram .fab:hover {
+			background: #d6249f;
+			background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%,#d6249f 60%,#285AEB 90%);
+			background-clip: text;
+			-webkit-background-clip: text;
+			-webkit-text-fill-color: transparent;
+		}
+	}
+}
