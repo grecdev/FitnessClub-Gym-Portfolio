@@ -36,7 +36,7 @@
 		overflow: hidden;
 		cursor: pointer;
 		@include flex(column, center, center);
-		border-radius: 5px;
+		border-radius: $border-radius-xs;
 		transition: all 400ms ease-in-out;
 		
 		.image-overlay { transition: all 900ms ease-in-out; }
