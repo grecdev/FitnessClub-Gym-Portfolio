@@ -6,7 +6,7 @@
 }
 
 body { 
-	font: normal 1rem/1.5 sans-serif;
+	font: normal 1rem/1.5 'Raleway', sans-serif;;
 	overflow-x: hidden;
 	position: relative;
 }
@@ -77,7 +77,14 @@ a, button {
 i { margin-left: .5rem; }
 
 /*** Utility classes ***/
+.container {
+	max-width: 1300px;
+	margin: 0 auto;
+	overflow: hidden;
+}
+
 .highlight-yellow { color: $yellow-pale }
+.highlight-green { color: $green-eton }
 
 /* Visible / Hidden sections */
 .visible-flex { display: flex !important }
