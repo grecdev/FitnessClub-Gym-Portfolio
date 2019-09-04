@@ -1,0 +1,82 @@
+/*** Main header ***/
+#main-header {
+	background: darken($green-eton, 15%);
+	color: $white;
+	@include flex(row, space-between, center);
+	padding: .5rem 1rem;
+	font-family: 'Chilanka', cursive;
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 10;
+	min-width: 100%;
+
+	/** Logo **/
+	.logo { @include font(1.5rem, $white, 500) }
+
+	/** Navigation Links **/
+	#header-navbar .main-list > li > a:hover, .active, #header-navbar .main-list > li:hover > a { color: $yellow-pale }
+
+	#header-navbar {
+
+		ul { @include flex(row, center, center) }
+
+		li { position: relative }
+		
+		li a {
+			padding: 1rem 1rem;
+			margin: 0 1rem;
+			transition: color 100ms ease-in-out;
+			position: relative;
+		}
+
+		/* Animation for active link / page */
+		li a::after {
+			content: '';
+			position: absolute;
+			width: 80%;
+			height: 2.3px;
+			background: $yellow-pale;
+			bottom: 10px;
+			left: 50%;
+			transform: translateX(-50%) scaleX(0);
+			transition: transform 200ms ease-in-out;
+		}
+
+		li a.active::after {
+			content: '';
+			transform: translateX(-50%) scaleX(1);
+		}
+
+		/* Dropdown Menu */
+		.dropdown {
+			@include flex(column, center, flex-start);
+			position: absolute;
+			left: 0;
+			top: 38px;
+			width: 225px;
+			background: $blue-air;
+			transform: translateY(15px);
+			visibility: hidden;
+  		opacity: 0;
+			transition: visibility 250ms ease-in-out, opacity 250ms ease-in-out, transform 250ms ease-in-out;
+			color: #fff;
+
+			li { width: 100% }
+
+			li a {
+				margin: 0;
+				padding: .5rem;
+				display: block;
+			}
+
+			li:hover { background: lighten($blue-air, 5%) }
+		}
+
+		li:hover .dropdown {
+			transform: translateY(0);
+			opacity: 1;
+			visibility: visible;
+		}
+	}
+}
