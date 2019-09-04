@@ -1,8 +1,20 @@
 #join-member {
 	background: $dark-primary;
 	color: $white;
-	padding: 2rem 3rem;
+	padding: 2rem 3rem 5rem;
 	padding-right: 1rem;
+	position: relative;
+
+	&::after {
+		content: '';
+		position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 0;
+    border-bottom: 50px solid #fff;
+    border-left: 100vw solid #0000;
+	}
 
 	.join-container { @include flex(row, space-between, center) }
 
