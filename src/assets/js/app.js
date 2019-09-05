@@ -7,6 +7,10 @@ require('isomorphic-fetch');
 
 import { headerFunctionality } from './header.js';
 import { showcaseFunctionality } from './showcase.js';
+import { globalFunctionality } from './global.js';
+
+
+globalFunctionality.init();
 
 headerFunctionality.init();
 

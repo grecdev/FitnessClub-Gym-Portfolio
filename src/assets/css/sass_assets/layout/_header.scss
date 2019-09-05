@@ -1,6 +1,5 @@
 /*** Main header ***/
 #main-header {
-	background: darken($green-eton, 15%);
 	color: $white;
 	@include flex(row, space-between, center);
 	padding: .5rem 1rem;
@@ -9,7 +8,10 @@
 	top: 0;
 	left: 0;
 	z-index: 10;
+	transition: all 450ms ease-in-out;
 	min-width: 100%;
+	transform: translateY(-20px);
+	opacity: 0;
 
 	/** Logo **/
 	.logo { @include font(1.5rem, $white, 500) }
@@ -47,36 +49,52 @@
 			content: '';
 			transform: translateX(-50%) scaleX(1);
 		}
+	}
+}
 
-		/* Dropdown Menu */
-		.dropdown {
-			@include flex(column, center, flex-start);
-			position: absolute;
-			left: 0;
-			top: 38px;
-			width: 225px;
-			background: $blue-air;
-			transform: translateY(15px);
-			visibility: hidden;
-  		opacity: 0;
-			transition: visibility 250ms ease-in-out, opacity 250ms ease-in-out, transform 250ms ease-in-out;
-			color: #fff;
 
-			li { width: 100% }
 
-			li a {
-				margin: 0;
-				padding: .5rem;
-				display: block;
-			}
+/** Header animation **/
+.header-intro { animation: headerIntro 1s ease-in-out forwards 1.4s }
+.header-scrolled { animation: headerScrolled 500ms ease-in-out forwards }
+.header-fixed { animation: headerFixed 500ms ease-in-out forwards }
 
-			li:hover { background: lighten($blue-air, 5%) }
-		}
+@keyframes headerIntro {
+	from {
+		transform: translateY(-20px);
+		opacity: 0;
+	}
+	
+	to {
+		transform: translateY(15px);
+		opacity: 1;
+	}
+}
 
-		li:hover .dropdown {
-			transform: translateY(0);
-			opacity: 1;
-			visibility: visible;
-		}
+@keyframes headerScrolled {
+	from {
+		background: transparent;
+		transform: translateY(15px);
+		opacity: 1;
+	}
+
+	to {
+		background: darken($green-eton, 15%);
+		transform: translateY(0);
+		opacity: 1;
+	}
+}
+
+@keyframes headerFixed {
+	from {
+		background: darken($green-eton, 15%);
+		transform: translateY(0);
+		opacity: 1;
+	}
+
+	to {
+		background: transparent;
+		transform: translateY(15px);
+		opacity: 1;
 	}
 }

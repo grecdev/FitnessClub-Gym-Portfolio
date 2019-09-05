@@ -8,9 +8,9 @@ export const headerFunctionality = (function() {
 
 	function init() {
 		// Event listeners
-		document.getElementById('main-header').addEventListener('click', headerFunctionality);
-		document.getElementById('main-header').addEventListener('mousedown', headerFunctionality);
-		document.getElementById('main-header').addEventListener('mouseup', headerFunctionality);
+		ui.header.addEventListener('click', headerFunctionality);
+		ui.header.addEventListener('mousedown', headerFunctionality);
+		ui.header.addEventListener('mouseup', headerFunctionality);
 
 		// Function helpers
 		// Header functionality
@@ -19,6 +19,7 @@ export const headerFunctionality = (function() {
 			// Active page / link
 			ui.activePage(e);
 
+			// Smooth navigation
 			ui.smoothScroll(e, jump);
 
 			e.stopPropagation();
