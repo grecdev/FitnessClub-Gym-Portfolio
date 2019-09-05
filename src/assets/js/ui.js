@@ -72,6 +72,16 @@ class Ui {
 		}
 	}
 
+	smoothScroll(e, jump) {
+
+		if(e.type === 'click') {
+			if(e.target.getAttribute('href') === '#join-member') { jump('#join-member', { duration: 600, offset: -50 }) }
+			else if(e.target.getAttribute('href') === '#subscription') { jump('#subscription', { duration: 600 }) }
+			else if(e.target.parentElement.getAttribute('href') === '#' || e.target.parentElement.parentElement.getAttribute('href') === '#') { jump('body', { duration: 600}) }
+		}
+
+		e.preventDefault();
+	}
 }
 
 export const ui = new Ui();

@@ -131,15 +131,6 @@ i { margin-left: .5rem; }
 			border-color: $white;
 		}
 	}
-
-	/* Black */
-	&-black {
-		background: #000;
-		color: $white;
-		border-radius: $border-radius-xs;
-
-		&:hover { background: lighten(#000, 10%) }
-	}
 }
 
 .shrink-link { transform: scale(.85) }

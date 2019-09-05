@@ -2,6 +2,7 @@
 // Individual functionality for header
 
 import { ui } from './ui.js';
+import jump from 'jump.js'
 
 export const headerFunctionality = (function() {
 
@@ -17,6 +18,8 @@ export const headerFunctionality = (function() {
 
 			// Active page / link
 			ui.activePage(e);
+
+			ui.smoothScroll(e, jump);
 
 			e.stopPropagation();
 		}
