@@ -7,14 +7,6 @@ class Ui {
 		// Buttons
 	}
 
-	// Check the page we are on so the header should be always visible
-	headerPageVisible() {
-		if(!document.URL.includes('index')) {
-			this.header.classList.remove('header-intro', 'header-scrolled', 'header-fixed');
-			this.header.classList.add('header-visible');
-		}
-	}
-
 	// Active link / page
 	activePage(e) {
 		if(e.type === 'click') {
@@ -103,14 +95,15 @@ class Ui {
 			}
 
 			// For services page to navigate trough sections
-			if(e.currentTarget.getAttribute('href') === '#pool-area') {
-				jump('#pool-area', { duration: 1800 })
-			} else if(e.currentTarget.getAttribute('href') === '#equipment-area') {
-				jump('#equipment-area', { duration: 1800 })
-			}
+			if(e.currentTarget.getAttribute('href') === '#pool-area') { jump('#pool-area', { duration: 1800 }) }
+			else if(e.currentTarget.getAttribute('href') === '#equipment-area') { jump('#equipment-area', { duration: 1800 }) }
+			else if(e.currentTarget.getAttribute('href') === '#boxing-area') { jump('#boxing-area', { duration: 1800 }) }
+			else if(e.currentTarget.getAttribute('href') === '#trainer-area') { jump('#trainer-area', { duration: 1800 }) }
+			else if(e.currentTarget.getAttribute('href') === '#dancing-area') { jump('#dancing-area', { duration: 1800 }) }
 		}
 	}
 
+	// Header animation on scroll
 	headerScroll() {
 		// Get the scroll position
 		const currentPosition = Math.floor(pageYOffset);
@@ -118,16 +111,19 @@ class Ui {
 		// If we scroll show animation for home page
 		if(document.URL.includes('index')) {
 			if(currentPosition > 0) {
-				ui.header.classList.remove('header-intro', 'header-fixed');
-				ui.header.classList.add('header-scrolled');
+				this.header.classList.remove('header-intro', 'header-fixed');
+				this.header.classList.add('header-scrolled');
 			} else {
-				ui.header.classList.remove('header-scrolled');
-				ui.header.classList.add('header-fixed');
+				this.header.classList.remove('header-scrolled');
+				this.header.classList.add('header-fixed');
 			}
 		}
 		
 		requestAnimationFrame(ui.headerScroll);
 	}
+
+	// Check the page we are on so the header should be always visible
+	headerPageVisible() { if(!document.URL.includes('index')) this.header.classList.add('header-visible') }
 
 	parallaxImage() {
 		// Get all parallax background images

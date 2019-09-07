@@ -14,6 +14,10 @@ module.exports = merge(config, {
 			filename: 'services.html',
 			template: './src/services.html'
 		}),
+		new HtmlWebpackPlugin({
+			filename: 'contact.html',
+			template: './src/contact.html'
+		})
 	],
 	module: {
 		rules: [

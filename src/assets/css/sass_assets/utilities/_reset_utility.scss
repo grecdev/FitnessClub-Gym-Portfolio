@@ -53,9 +53,11 @@ table {
 html { height: 100%; }
 
 body { 
-	font: normal 1rem/1.5 'Raleway', sans-serif;;
+	font: normal 1rem/1.5 'Raleway', sans-serif;
 	overflow-x: hidden;
 	position: relative;
+	min-height: 100%;
+	padding-bottom: $footer-height;
 }
 
 /* Responsive images */
@@ -132,6 +134,13 @@ i { margin-left: .5rem; }
 			background: $pink;
 			border-color: $white;
 		}
+	}
+	
+	/* Dark */
+	&-dark {
+		border: 2px solid $dark-primary;
+
+		&:hover { border-color: $blue-air }
 	}
 }
 
@@ -211,6 +220,8 @@ i { margin-left: .5rem; }
 .section-header {
 	padding: 2rem 0;
 	position: relative;
+	color: $white;
+	background: $dark-primary;
 
 	h1 { @include font(2rem, inherit, 500) }
 

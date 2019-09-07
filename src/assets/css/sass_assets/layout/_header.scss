@@ -4,14 +4,14 @@
 	@include flex(row, space-between, center);
 	padding: .5rem 1rem;
 	font-family: 'Chilanka', cursive;
+	z-index: 10;
+	transition: all 450ms ease-in-out;
+	transform: translateY(-20px);
+	opacity: 0;
 	position: fixed;
 	top: 0;
 	left: 0;
-	z-index: 10;
-	transition: all 450ms ease-in-out;
 	min-width: 100%;
-	transform: translateY(-20px);
-	opacity: 0;
 
 	/** Logo **/
 	.logo { @include font(1.5rem, $white, 500) }
@@ -53,12 +53,16 @@
 }
 
 /** Header animation **/
+// .header-intro, .header-scrolled, .header-fixed {  }
+
 .header-intro { animation: headerIntro 1s ease-in-out forwards 1.4s }
 .header-scrolled { animation: headerScrolled 500ms ease-in-out forwards }
 .header-fixed { animation: headerFixed 500ms ease-in-out forwards }
+
 .header-visible {
 	transform: translate(0) !important;
 	opacity: 1 !important;
+	position: relative !important;
 	background: darken($green-eton, 15%);
 }
 
