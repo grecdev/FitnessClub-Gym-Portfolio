@@ -29,6 +29,15 @@ module.exports = merge(config, {
 					removeComments: true,
 				}
 			}),
+			new HtmlWebpackPlugin({
+				filename: 'services.html',
+				template: './src/services.html',
+				minify: {
+					removeAttributeQuotes: true,
+					collapseWhitespace: true,
+					removeComments: true,
+				}
+			})
 		]
 	},
 	plugins: [

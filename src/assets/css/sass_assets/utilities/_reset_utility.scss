@@ -5,12 +5,6 @@
 	box-sizing: border-box;
 }
 
-body { 
-	font: normal 1rem/1.5 'Raleway', sans-serif;;
-	overflow-x: hidden;
-	position: relative;
-}
-
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -54,6 +48,14 @@ q:before, q:after {
 table {
 	border-collapse: collapse;
 	border-spacing: 0;
+}
+
+html { height: 100%; }
+
+body { 
+	font: normal 1rem/1.5 'Raleway', sans-serif;;
+	overflow-x: hidden;
+	position: relative;
 }
 
 /* Responsive images */
@@ -204,3 +206,53 @@ i { margin-left: .5rem; }
 /* Margins / Paddings */
 .mb-1 { margin-bottom: 1rem }
 .mb-2 { margin-bottom: 2rem }
+
+/** Section headers **/
+.section-header {
+	padding: 2rem 0;
+	position: relative;
+
+	h1 { @include font(2rem, inherit, 500) }
+
+	&::after {
+		content: '';
+		position: absolute;
+		width: 95px;
+		height: 3.5px;
+		background: $white;
+		bottom: 20px;
+		left: 50%;
+		transform: translateX(-50%);
+	}
+}
+
+/** For pages without header-intro animation **/
+.header-height { margin-top: $header-height }
+
+/** Parallax effect ( implemented with js ) **/
+.parallax-image { background-attachment: fixed !important }
+
+/** Overlay effect **/
+.overlay-bg {
+	position: relative;
+	
+	&::after {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background: rgba(0, 0, 0, .2);
+	}
+}
+
+/** Services page arrows **/
+.service-arrow {
+	display: inline-block;
+	position: absolute;
+	left: 50%;
+	bottom: 0;
+	transform: translateX(-50%);
+	font-size: 2rem;
+}

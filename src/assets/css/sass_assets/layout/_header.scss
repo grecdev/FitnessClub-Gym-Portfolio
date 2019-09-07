@@ -52,12 +52,15 @@
 	}
 }
 
-
-
 /** Header animation **/
 .header-intro { animation: headerIntro 1s ease-in-out forwards 1.4s }
 .header-scrolled { animation: headerScrolled 500ms ease-in-out forwards }
 .header-fixed { animation: headerFixed 500ms ease-in-out forwards }
+.header-visible {
+	transform: translate(0) !important;
+	opacity: 1 !important;
+	background: darken($green-eton, 15%);
+}
 
 @keyframes headerIntro {
 	from {

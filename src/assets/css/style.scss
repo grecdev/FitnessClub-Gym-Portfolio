@@ -3,11 +3,17 @@
 @import './sass_assets/utilities/mixins_extends';
 @import './sass_assets/utilities/reset_utility';
 
-// Layout
+// Global layout
 @import './sass_assets/layout/header';
-@import './sass_assets/layout/showcase';
-@import './sass_assets/layout/join_member';
-@import './sass_assets/layout/how_to_join';
-@import './sass_assets/layout/subscription';
-@import './sass_assets/layout/newsletter';
 @import './sass_assets/layout/footer';
+
+// Home Page
+@import './sass_assets/layout/index/showcase';
+@import './sass_assets/layout/index/services_section';
+@import './sass_assets/layout/index/how_to_join';
+@import './sass_assets/layout/index/subscription';
+@import './sass_assets/layout/index/newsletter';
+
+// Services Page
+@import './sass_assets/layout/services/services_showcase.scss';
+@import './sass_assets/layout/services/services_sections.scss';

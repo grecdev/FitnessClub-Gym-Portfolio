@@ -6,9 +6,13 @@ module.exports = merge(config, {
 	devtool: 'none', // It removes eval, makes it easier to understand
 	mode: 'development', // development means: STOP MINIFIED
 	plugins: [
-		new HtmlWebpackPlugin({  // Also generate a index.html
+		new HtmlWebpackPlugin({
 			filename: 'index.html',
 			template: './src/index.html'
+		}),
+		new HtmlWebpackPlugin({
+			filename: 'services.html',
+			template: './src/services.html'
 		}),
 	],
 	module: {

@@ -1,8 +1,18 @@
+import jump from 'jump.js';
+
 class Ui {
 	constructor() {
 		// Ui elements
 		this.header = document.getElementById('main-header');
 		// Buttons
+	}
+
+	// Check the page we are on so the header should be always visible
+	headerPageVisible() {
+		if(!document.URL.includes('index')) {
+			this.header.classList.remove('header-intro', 'header-scrolled', 'header-fixed');
+			this.header.classList.add('header-visible');
+		}
 	}
 
 	// Active link / page
@@ -72,21 +82,64 @@ class Ui {
 		}
 	}
 
-	smoothScroll(e, jump) {
-
+	// Smooth scroll click
+	smoothScroll(e) {
+		// Prevent default => so we don't overwrite header animations
 		if(e.type === 'click') {
 			// For home page
-			if(e.target.getAttribute('href') === '#join-member') { jump('#join-member', { duration: 600, offset: -50 }) }
-			else if(e.target.getAttribute('href') === '#subscription') { jump('#subscription', { duration: 600 }) }
-			else if(e.target.parentElement.getAttribute('href') === '#' || e.target.parentElement.parentElement.getAttribute('href') === '#') { jump('body', { duration: 600}) }
-		}
+			if(e.target.getAttribute('href') === '#services-section') {
+				jump('#services-section', { duration: 600, offset: -50 });
+				e.preventDefault();
+			}
 
-		e.preventDefault();
+			else if(e.target.getAttribute('href') === '#subscription') {
+				jump('#subscription', { duration: 600 });
+				e.preventDefault();
+			}
+
+			else if(e.target.parentElement.getAttribute('href') === '#' || e.target.parentElement.parentElement.getAttribute('href') === '#') {
+				jump('body', { duration: 600});
+				e.preventDefault();
+			}
+
+			// For services page to navigate trough sections
+			if(e.currentTarget.getAttribute('href') === '#pool-area') {
+				jump('#pool-area', { duration: 1800 })
+			} else if(e.currentTarget.getAttribute('href') === '#equipment-area') {
+				jump('#equipment-area', { duration: 1800 })
+			}
+		}
 	}
 
-	scrollHeader(e) {
-
+	headerScroll() {
+		// Get the scroll position
+		const currentPosition = Math.floor(pageYOffset);
 		
+		// If we scroll show animation for home page
+		if(document.URL.includes('index')) {
+			if(currentPosition > 0) {
+				ui.header.classList.remove('header-intro', 'header-fixed');
+				ui.header.classList.add('header-scrolled');
+			} else {
+				ui.header.classList.remove('header-scrolled');
+				ui.header.classList.add('header-fixed');
+			}
+		}
+		
+		requestAnimationFrame(ui.headerScroll);
+	}
+
+	parallaxImage() {
+		// Get all parallax background images
+		const backgroundImages = document.querySelectorAll('.parallax-image');
+
+		backgroundImages.forEach(image => {
+			// Get the position of each image on Y / top axis
+			let pos = Math.floor(image.getBoundingClientRect().top) / 3;
+			
+			// Set the style
+			image.style.backgroundPosition = `center ${pos}px`;
+		});
 	}
 }
 
