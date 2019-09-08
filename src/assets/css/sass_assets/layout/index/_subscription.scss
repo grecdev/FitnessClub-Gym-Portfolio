@@ -1,0 +1,77 @@
+#subscription {
+	padding: 2rem 0;
+	background: $dark-primary;
+	color: $white;
+	position: relative;
+
+	&::before {
+		content: '';
+		position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 0;
+    border-top: 50px solid #fff;
+    border-left: 100vw solid #0000;
+	}
+
+	.subscription-container {
+		@include flex(row, space-between, center);
+		padding: 5rem 1rem 1rem;
+	}
+
+	.subscription-box {
+		border: 1px solid #999;
+		padding: 2rem 1rem .5rem;
+		min-height: 380px;
+		@include flex(column, center, center);
+		transition: all 200ms ease-in-out;
+
+		&:hover { box-shadow: 0 0 5px $green-eton }
+
+		.subscription-header {
+			margin-bottom: 1.5rem;
+
+			h3 {
+				@include font(2rem, normal, 500);
+				margin-bottom: .5rem;
+			}
+		}
+
+		ul {
+			text-align: left;
+
+			li {
+				margin: .5rem 0;
+				padding: .5rem 0;
+				font-size: .9rem;
+				border-bottom: 1px solid $dark-primary;
+
+				&:last-child {
+					border: none;
+					padding-bottom: 0;
+				}
+	
+				i { margin-right: .6rem }
+				i.fa-check { color: $green-eton }
+				i.fa-times { color: $times-red }
+			}
+		}
+
+		a {
+			margin-top: auto;
+			color: $white;
+		}
+
+		.subscription-price {
+			font-size: 2rem;
+			@include flex(row, center, center);
+
+			sup {
+				font-size: .9rem;
+				margin-left: .3rem;
+				color: #A9A9A9;
+			}
+		}
+	}
+}

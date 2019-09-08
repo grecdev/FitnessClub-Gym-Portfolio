@@ -1,0 +1,117 @@
+#home-arrow {
+	background: $dark-primary;
+	color: $green-eton;
+	position: absolute;
+	top: 10px;
+	left: 10px;
+	width: 35px;
+	height: 35px;
+	text-align: center;
+	border-radius: 50%;
+	font-size: 1.1rem;
+	@include flex(column, center, center);
+
+	i {
+		margin: 0;
+		padding: 0;
+	}
+}
+
+#login-container {
+	@include flex(row, space-between, flex-start);
+	width: 100vw;
+	height: 100vh;
+
+	& > * {
+		height: 100%;
+		width: 50%;
+	}
+
+	.login-showcase { background: url('../imgs/gym-sign.jpg') no-repeat center/cover }
+
+	.login-form {
+		@include flex(column, center, center);
+
+		h2 { @include font(1.5rem, inherit, 400) }
+
+		form {
+			border: 1px solid $dark-primary;
+			padding: 1.5rem 1rem 2.5rem 1rem;
+			width: 45%;
+			@include flex(column, center, center);
+
+			& > a:hover { text-decoration: underline }
+		}
+
+		.form-box {
+			width: 100%;
+			margin-bottom: 1rem;
+
+			input {
+				width: 100%;
+				padding: .35rem .4rem .35rem .3rem;
+			}
+
+			button {
+				width: 100%;
+				@include font(.9rem, $white, 300);
+			}
+
+			input, ::placeholder { font-size: .75rem }
+
+			&:last-child { margin-bottom: 0 }
+		}
+
+		.facebook-login {
+			background: #3e5c99;
+			padding: .6rem .6rem .6rem .2rem;
+			@include font(.9rem, $white, 300);
+			display: block;
+			position: relative;
+			@include flex(row, center, center);
+
+			i {
+				margin: 0;
+				position: absolute;
+				left: 20px;
+			}
+
+			&:hover { background: lighten(#3e5c99, 10%) }
+		}
+
+		.form-box:nth-child(2) {
+			
+			p {
+				position: relative;
+				display: inline-block;
+				@include font(.8rem, $dark-primary, 500);
+			}
+
+			p::before, p::after {
+				content: '';
+				position: absolute;
+				top: 50%;
+				transform: translateY(-50%);
+				background: $dark-primary;
+				width: 25px;
+				height: 1px;
+			}
+
+			p::before { left: -40px }
+			p::after { right: -40px }
+		}
+
+		p {
+
+			@include font(.9rem, inherit, 500);
+
+			a {
+				border-bottom: 1px solid transparent;
+	
+				&:hover { border-color: $green-eton }
+			}	
+		}
+	}
+}
+
+.padding-none { padding: 0 }

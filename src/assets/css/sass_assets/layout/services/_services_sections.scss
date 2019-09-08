@@ -1,0 +1,98 @@
+/** Global styles for each section **/
+#pool-area, #equipment-area, #boxing-area, #trainer-area, #dancing-area {
+	width: 100vw;
+	height: 100vh;
+	position: relative;
+
+	.services-description {
+		color: $white;
+		background: $dark-primary;
+		width: 30%;
+		height: 100%;
+		padding: 1rem 2rem;
+		@include flex(column, center, center);
+		position: relative;
+		z-index: 1;
+
+		&::after {
+			top: 0;
+			width: 5px;
+			height: 100%;
+		}
+
+		h2 { @include font(2rem, inherit, 400) }
+	}
+}
+
+/*** Pool Area ***/
+#pool-area {
+	background: url('../imgs/pool-gym.jpg') no-repeat center/cover;
+	@include flex(column, center, flex-start);
+
+	.services-description::after {
+		content: '';
+		position: absolute;
+		right: 0;
+		background: #BD67F0;
+	}
+}
+
+/*** Modren Equipment Area ***/
+#equipment-area {
+	background: url('../imgs/gym-equipment.jpg') no-repeat center/cover;
+	@include flex(column, center, flex-end);
+	
+	.services-description::after {
+		content: '';
+		position: absolute;
+		left: 0;
+		background: $green-eton;
+	}
+}
+
+/*** Boxing Classes Area ***/
+#boxing-area {
+	background: url('../imgs/box-classes.jpg') no-repeat center/cover;
+	@include flex(column, center, center);
+	padding: 5em 0;
+
+	.service-up-arrow { top: 0 }
+}
+
+/*** Personal Trainer Area ***/
+#trainer-area {
+	background: url('../imgs/personal-trainer.jpg') no-repeat center/cover;
+	@include flex(column, center, flex-start);
+
+	.services-description::after {
+		content: '';
+		position: absolute;
+		right: 0;
+		background: $blue-air;
+	}
+}
+
+/*** Dancing Area ***/
+#dancing-area {
+	background: url('../imgs/dancing-exercises.jpg') no-repeat center/cover;
+	@include flex(column, center, flex-end);
+	
+	.services-description::after {
+		content: '';
+		position: absolute;
+		left: 0;
+		background: #F21ED8;
+	}
+}
+
+/** Services page arrows **/
+.service-down-arrow, .service-up-arrow {
+	display: inline-block;
+	position: absolute;
+	left: 50%;
+	transform: translateX(-50%);
+	font-size: 2rem;
+}
+
+.service-down-arrow { bottom: 0 }
+.service-up-arrow { top: 50px }

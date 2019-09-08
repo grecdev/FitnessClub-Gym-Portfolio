@@ -1,0 +1,47 @@
+#services-showcase {
+	background: $white;
+	padding: 0rem 0 4rem;
+	position: relative;
+
+	.services-list {
+		@include flex(row, space-around, flex-start);
+		margin-top: 3rem;
+
+		ul:first-child { width: 50%; }
+
+		ul {
+			li { @include font(1.5rem, inherit, 500) }
+
+			li:nth-child(odd) { color: $green-eton }
+		}
+	}
+
+	.program {
+		@include flex(column, center, center);
+		font-size: 1.5rem;
+
+		.program-box {
+			@include flex(row, space-between, center);
+			position: relative;
+			
+			ul {
+				position: relative;
+				margin-left: 1rem;
+				padding-top: 1rem;
+			}
+
+			ul::before {
+				content: '';
+				position: absolute;
+				top: 0;
+				left: 50%;
+				transform: translateX(-50%);
+				height: 3px;
+				width: 50%;
+				background: $dark-primary	;
+			}
+		}
+	}
+}
+
+.services-reset { padding: $header-height 0 0 0 }

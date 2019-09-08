@@ -1,0 +1,71 @@
+#services-section {
+	background: $dark-primary;
+	color: $white;
+	padding: 2rem 3rem 5rem;
+	padding-right: 1rem;
+	position: relative;
+
+	&::after {
+		content: '';
+		position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 0;
+    border-bottom: 50px solid #fff;
+    border-left: 100vw solid #0000;
+	}
+
+	.join-container { @include flex(row, space-between, center) }
+
+	.join-content {
+		width: 30%;
+		
+		h1 { @include font(2rem, normal, normal) }
+
+		p { @include font(.95rem, normal, normal) }
+	}
+
+	.join-images {
+		@include grid(repeat(3, 1fr), 1rem);
+		width: 60%;
+	}
+
+	.image-box {
+		position: relative;
+		overflow: hidden;
+		cursor: pointer;
+		@include flex(column, center, center);
+		border-radius: $border-radius-xs;
+		transition: all 400ms ease-in-out;
+		
+		.image-overlay { transition: all 900ms ease-in-out; }
+
+		.image-overlay {
+			background: rgba(130, 196, 176, .7);
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 550px;
+			height: 550px;
+			transform: translate(-500px, -500px) rotate(50deg);
+		}
+
+		&:hover .image-overlay { transform: translate(-100px, -100px) rotate(50deg) }
+
+		.image-info {
+			position: absolute;
+			@include font(1.2rem, #fff, 500);
+			transform: translateY(-45px);
+			opacity: 0;
+			transition: all 600ms ease-in-out;
+		}
+
+		&:hover .image-info {
+			transform: translateY(0);
+			opacity: 1;
+		}
+
+		&:hover { box-shadow: 0 0 20px $green-eton }
+	}
+}
