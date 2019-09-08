@@ -216,6 +216,12 @@ i { margin-left: .5rem; }
 .mb-1 { margin-bottom: 1rem }
 .mb-2 { margin-bottom: 2rem }
 
+.mt-1 { margin-top: 1rem }
+.mt-2 { margin-top: 2rem }
+
+.padding-none { padding: 0 }
+.header-space { padding-top: $header-height }
+
 /** Section headers **/
 .section-header {
 	padding: 2rem 0;
@@ -256,14 +262,4 @@ i { margin-left: .5rem; }
 		height: 100%;
 		background: rgba(0, 0, 0, .2);
 	}
-}
-
-/** Services page arrows **/
-.service-arrow {
-	display: inline-block;
-	position: absolute;
-	left: 50%;
-	bottom: 0;
-	transform: translateX(-50%);
-	font-size: 2rem;
 }

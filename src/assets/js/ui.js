@@ -5,6 +5,8 @@ class Ui {
 		// Ui elements
 		this.header = document.getElementById('main-header');
 		// Buttons
+		this.downArrow = document.querySelectorAll('.service-down-arrow');
+		this.upArrow = document.querySelectorAll('.service-up-arrow');
 	}
 
 	// Active link / page
@@ -95,11 +97,19 @@ class Ui {
 			}
 
 			// For services page to navigate trough sections
-			if(e.currentTarget.getAttribute('href') === '#pool-area') { jump('#pool-area', { duration: 1800 }) }
-			else if(e.currentTarget.getAttribute('href') === '#equipment-area') { jump('#equipment-area', { duration: 1800 }) }
-			else if(e.currentTarget.getAttribute('href') === '#boxing-area') { jump('#boxing-area', { duration: 1800 }) }
-			else if(e.currentTarget.getAttribute('href') === '#trainer-area') { jump('#trainer-area', { duration: 1800 }) }
-			else if(e.currentTarget.getAttribute('href') === '#dancing-area') { jump('#dancing-area', { duration: 1800 }) }
+			// Go downards
+			if(e.currentTarget.getAttribute('href') === '#pool-area-down') { jump('#pool-area', { duration: 1800 }) }
+			else if(e.currentTarget.getAttribute('href') === '#equipment-area-down') { jump('#equipment-area', { duration: 1800 }) }
+			else if(e.currentTarget.getAttribute('href') === '#boxing-area-down') { jump('#boxing-area', { duration: 1800 }) }
+			else if(e.currentTarget.getAttribute('href') === '#trainer-area-down') { jump('#trainer-area', { duration: 1800 }) }
+			else if(e.currentTarget.getAttribute('href') === '#dancing-area-down') { jump('#dancing-area', { duration: 1800 }) }
+
+			// Go upwards
+			if(e.currentTarget.getAttribute('href') === '#trainer-area-up') { jump('#trainer-area', { duration: 1800 }) }
+			else if(e.currentTarget.getAttribute('href') === '#boxing-area-up') { jump('#boxing-area', { duration: 1800 }) }
+			else if(e.currentTarget.getAttribute('href') === '#equipment-area-up') { jump('#equipment-area', { duration: 1800 }) }
+			else if(e.currentTarget.getAttribute('href') === '#pool-area-up') { jump('#pool-area', { duration: 1800 }) }
+			else if(e.currentTarget.getAttribute('href') === '#services-showcase-up') { jump('body', { duration: 1800 }) }
 		}
 	}
 
@@ -109,13 +119,13 @@ class Ui {
 		const currentPosition = Math.floor(pageYOffset);
 		
 		// If we scroll show animation for home page
-		if(document.URL.includes('index')) {
+		if(document.URL.includes('index') && document.body.contains(ui.header)) {
 			if(currentPosition > 0) {
-				this.header.classList.remove('header-intro', 'header-fixed');
-				this.header.classList.add('header-scrolled');
+				ui.header.classList.remove('header-intro', 'header-fixed');
+				ui.header.classList.add('header-scrolled');
 			} else {
-				this.header.classList.remove('header-scrolled');
-				this.header.classList.add('header-fixed');
+				ui.header.classList.remove('header-scrolled');
+				ui.header.classList.add('header-fixed');
 			}
 		}
 		
@@ -123,7 +133,7 @@ class Ui {
 	}
 
 	// Check the page we are on so the header should be always visible
-	headerPageVisible() { if(!document.URL.includes('index')) this.header.classList.add('header-visible') }
+	headerPageVisible() { if(!document.URL.includes('index') && document.body.contains(this.header)) this.header.classList.add('header-visible') }
 
 	parallaxImage() {
 		// Get all parallax background images

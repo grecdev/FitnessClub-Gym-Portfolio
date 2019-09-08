@@ -17,6 +17,10 @@ module.exports = merge(config, {
 		new HtmlWebpackPlugin({
 			filename: 'contact.html',
 			template: './src/contact.html'
+		}),
+		new HtmlWebpackPlugin({
+			filename: 'login.html',
+			template: './src/login.html'
 		})
 	],
 	module: {
