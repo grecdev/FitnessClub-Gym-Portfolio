@@ -263,3 +263,29 @@ i { margin-left: .5rem; }
 		background: rgba(0, 0, 0, .2);
 	}
 }
+
+/*** Button for going on the top of the page ***/
+#reset-btn {
+	background: $green-eton;
+	display: inline-block;
+	position: fixed;
+	bottom: 30px;
+	right: 50px;
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	@include flex(column, center, center);
+	z-index: 9;
+	transform: scale(0);
+	opacity: 0;
+	transition: all 500ms ease-in-out;
+	cursor: pointer;
+
+	i { margin: 0; padding: 0 }
+}
+
+/** Animation for reset btn **/
+.reset-btn-visible {
+	transform: scale(1) !important;
+	opacity: 1 !important;
+}

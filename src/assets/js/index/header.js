@@ -8,19 +8,12 @@ export const headerFunctionality = (function() {
 	function init() {
 		// Event listeners
 		// Because on the login page we don't have any header and errors will occur :)
-		if(document.body.contains(ui.header)) {
-			ui.header.addEventListener('click', headerFunctionality);
-			ui.header.addEventListener('mousedown', headerFunctionality);
-			ui.header.addEventListener('mouseup', headerFunctionality);
-		}
+		if(document.body.contains(ui.header)) ui.header.addEventListener('click', headerFunctionality)
 
 		// Function helpers
 		// Header functionality
 		function headerFunctionality(e) {
-
-			// Active page / link
-			ui.activePage(e);
-
+			
 			// Smooth navigation
 			ui.smoothScroll(e);
 			

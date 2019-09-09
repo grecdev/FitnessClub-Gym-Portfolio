@@ -11,6 +11,9 @@ export const globalFunctionality = (function() {
 		
 		document.addEventListener('DOMContentLoaded', load);
 
+		// Only on pages that have reset scroll btn
+		if(document.body.contains(ui.resetScroll_btn)) ui.resetScroll_btn.addEventListener('click', resetScroll);
+
 		// Function helpers
 		function scroll(e) {
 
@@ -21,6 +24,11 @@ export const globalFunctionality = (function() {
 
 			// Image parallax scrolling effect
 			ui.parallaxImage();
+
+			requestAnimationFrame(ui.parallaxImage);
+
+			// Reset scroll btn
+			ui.resetScroll(e);
 			
 			e.stopPropagation();
 		}
@@ -29,6 +37,15 @@ export const globalFunctionality = (function() {
 			
 			// Check the page we are on so the header should be always visible
 			ui.headerPageVisible();
+
+			e.stopPropagation();
+		}
+
+		// Reset scroll
+		function resetScroll(e) {
+
+			// Reset scroll btn
+			ui.resetScroll(e);
 			
 			e.stopPropagation();
 		}

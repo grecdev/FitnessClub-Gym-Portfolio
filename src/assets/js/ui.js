@@ -4,76 +4,11 @@ class Ui {
 	constructor() {
 		// Ui elements
 		this.header = document.getElementById('main-header');
+		this.header_links = document.querySelector('#header-navbar .main-list');
 		// Buttons
 		this.downArrow = document.querySelectorAll('.service-down-arrow');
 		this.upArrow = document.querySelectorAll('.service-up-arrow');
-	}
-
-	// Active link / page
-	activePage(e) {
-		if(e.type === 'click') {
-			// If click on links make active
-			if(e.target.hasAttribute('data-navbar-link')) {
-		
-				// Remove all active links if we have one already active
-				document.querySelectorAll('.active').forEach(link => link.classList.remove('active'));
-				
-				// Make page / link active
-				e.target.classList.add('active');
-
-				// Click on icon
-			} else if(e.target.parentElement.hasAttribute('data-navbar-link')) {
-
-				// Remove all active links if we have one already active
-				document.querySelectorAll('.active').forEach(link => link.classList.remove('active'));
-				
-				// Make page / link active
-				e.target.parentElement.classList.add('active');
-
-			}
-
-			// If we click on logo
-			if(e.target.parentElement.parentElement.parentElement.classList.contains('logo') || e.target.parentElement.parentElement.classList.contains('logo')) {
-				// Remove all active links if we have one already active
-				document.querySelectorAll('.active').forEach(link => link.classList.remove('active'));
-			}
-		}
-	
-		if(e.type === 'mousedown') {
-			// Pressing click animation
-			if(e.target.parentElement.tagName === 'LI' && e.target.hasAttribute('data-navbar-link')) { 
-
-				document.querySelectorAll('.shrink-link').forEach(link => link.classList.remove('shrink-link'));
-
-				e.target.parentElement.classList.add('shrink-link');
-
-				// Click on icon
-			} else if(e.target.parentElement.parentElement.tagName === 'LI' && e.target.parentElement.hasAttribute('data-navbar-link')) {
-
-				document.querySelectorAll('.shrink-link').forEach(link => link.classList.remove('shrink-link'));
-
-				e.target.parentElement.parentElement.classList.add('shrink-link');
-
-			}
-
-			// Releasing click animation
-		} else if(e.type === 'mouseup') {
-			
-			if(e.target.parentElement.tagName === 'LI' && e.target.hasAttribute('data-navbar-link')) {
-
-				document.querySelectorAll('.shrink-link').forEach(link => link.classList.remove('shrink-link'));
-
-				e.target.parentElement.classList.remove('shrink-link');
-
-				// Click on icon
-			} else if(e.target.parentElement.parentElement.tagName === 'LI' && e.target.parentElement.hasAttribute('data-navbar-link')) {
-
-				document.querySelectorAll('.shrink-link').forEach(link => link.classList.remove('shrink-link'));
-
-				e.target.parentElement.parentElement.classList.remove('shrink-link');
-
-			}
-		}
+		this.resetScroll_btn = document.getElementById('reset-btn');
 	}
 
 	// Smooth scroll click
@@ -119,7 +54,8 @@ class Ui {
 		const currentPosition = Math.floor(pageYOffset);
 		
 		// If we scroll show animation for home page
-		if(document.URL.includes('index') && document.body.contains(ui.header)) {
+		if(window.location.pathname === '/' || window.location.pathname.includes('index')) {
+			// Make header visible / hidden
 			if(currentPosition > 0) {
 				ui.header.classList.remove('header-intro', 'header-fixed');
 				ui.header.classList.add('header-scrolled');
@@ -127,14 +63,31 @@ class Ui {
 				ui.header.classList.remove('header-scrolled');
 				ui.header.classList.add('header-fixed');
 			}
+
+			// Make header link active when section is in viewport
+			if(currentPosition >= 672 && currentPosition <= 775) {
+
+				document.querySelectorAll('.active').forEach(active => active.classList.remove('active'));
+				document.querySelector('#header-navbar .main-list').children[0].children[0].classList.add('active');
+
+			} else document.querySelector('#header-navbar .main-list').children[0].children[0].classList.remove('active');
+
+			// Make header link active when section is in viewport
+			if(currentPosition >= 1553 && currentPosition <= 1726) {
+				
+				document.querySelectorAll('.active').forEach(active => active.classList.remove('active'));
+				document.querySelector('#header-navbar .main-list').children[1].children[0].classList.add('active')
+
+			} else document.querySelector('#header-navbar .main-list').children[1].children[0].classList.remove('active');
 		}
 		
 		requestAnimationFrame(ui.headerScroll);
 	}
 
 	// Check the page we are on so the header should be always visible
-	headerPageVisible() { if(!document.URL.includes('index') && document.body.contains(this.header)) this.header.classList.add('header-visible') }
+	headerPageVisible() { if(window.location.pathname !== '/' && !window.location.pathname.includes('index') && document.body.contains(this.header)) this.header.classList.add('header-visible') }
 
+	// Parallax scroll background images
 	parallaxImage() {
 		// Get all parallax background images
 		const backgroundImages = document.querySelectorAll('.parallax-image');
@@ -146,6 +99,24 @@ class Ui {
 			// Set the style
 			image.style.backgroundPosition = `center ${pos}px`;
 		});
+
+		requestAnimationFrame(ui.parallaxImage);
+	}
+
+	// Reset scroll btn
+	resetScroll(e) {
+		if(e.type === 'scroll') {
+
+			const currentPosition = Math.floor(window.pageYOffset);
+	
+			if(currentPosition >= 1172) this.resetScroll_btn.classList.add('reset-btn-visible')
+			else this.resetScroll_btn.classList.remove('reset-btn-visible')
+	
+			requestAnimationFrame(ui.parallaxImage);
+
+		}
+
+		else if(e.type === 'click' && e.currentTarget === ui.resetScroll_btn) jump('body', { duration: 600})
 	}
 }
 
