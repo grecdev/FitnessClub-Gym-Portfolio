@@ -9,25 +9,38 @@ class Ui {
 		this.downArrow = document.querySelectorAll('.service-down-arrow');
 		this.upArrow = document.querySelectorAll('.service-up-arrow');
 		this.resetScroll_btn = document.getElementById('reset-btn');
+		this.showMobile_menu = document.getElementById('show-mobile-menu');
+		this.hideMobile_menu = document.getElementById('hide-mobile-menu');
+		// Menus
+		this.mobile_menu = document.querySelector('.bar-menu-container');
 	}
 
 	// Smooth scroll click
 	smoothScroll(e) {
-		// Prevent default => so we don't overwrite header animations
 		if(e.type === 'click') {
 			// For home page
 			if(e.target.getAttribute('href') === '#services-section') {
+				// Close mobile header menu
+				this.mobile_menu.classList.remove('mobile-header-menu-visible')
 				jump('#services-section', { duration: 600, offset: -50 });
+
+				// Prevent default => so we don't overwrite header animations
 				e.preventDefault();
 			}
 
 			else if(e.target.getAttribute('href') === '#subscription') {
+				// Close mobile header menu
+				this.mobile_menu.classList.remove('mobile-header-menu-visible')
 				jump('#subscription', { duration: 600 });
+
+				// Prevent default => so we don't overwrite header animations
 				e.preventDefault();
 			}
 
 			else if(e.target.parentElement.getAttribute('href') === '#' || e.target.parentElement.parentElement.getAttribute('href') === '#') {
 				jump('body', { duration: 600});
+				
+				// Prevent default => so we don't overwrite header animations
 				e.preventDefault();
 			}
 
@@ -56,10 +69,10 @@ class Ui {
 		// If we scroll show animation for home page
 		if(window.location.pathname === '/' || window.location.pathname.includes('index')) {
 			// Make header visible / hidden
-			if(currentPosition > 0) {
+			if(currentPosition > 2 && window.matchMedia('(max-width: 768px)').matches === false) {
 				ui.header.classList.remove('header-intro', 'header-fixed');
 				ui.header.classList.add('header-scrolled');
-			} else {
+			} else if(currentPosition < 1 && window.matchMedia('(max-width: 768px)').matches === false){
 				ui.header.classList.remove('header-scrolled');
 				ui.header.classList.add('header-fixed');
 			}
@@ -117,6 +130,29 @@ class Ui {
 		}
 
 		else if(e.type === 'click' && e.currentTarget === ui.resetScroll_btn) jump('body', { duration: 600})
+	}
+
+	// Show / Hide mobile header menu
+	mobileHeader(e) {
+
+		if(e.type === 'click') {
+			// IF we click on icon or button itself
+			if(e.target.parentElement === this.showMobile_menu || e.target === this.showMobile_menu) this.mobile_menu.classList.add('mobile-header-menu-visible');
+			else if(e.target.parentElement === this.hideMobile_menu || e.target === this.hideMobile_menu) this.mobile_menu.classList.remove('mobile-header-menu-visible');
+		}
+
+		// Reset header animation on mobile
+		if(e.type === 'scroll' || e.type === 'DOMContentLoaded') {
+
+			if(window.matchMedia('(min-width: 768px)').matches === false) {
+	
+				ui.header.classList.remove('header-intro', 'header-scrolled', 'header-fixed');
+	
+				ui.header.classList.add('mobile-header-visible');
+			}
+			
+		}
+
 	}
 }
 

@@ -103,3 +103,17 @@
 		opacity: 1;
 	}
 }
+
+#header-mobile { display: none }
+
+.mobile-header-visible {
+	transform: translateY(0) !important;
+	opacity: 1 !important;
+	background: darken($green-eton, 15%) !important;
+}
+
+.mobile-header-menu-visible {
+	transform: translateY(0) !important;
+	opacity: 1 !important;
+	z-index: 3 !important;
+}

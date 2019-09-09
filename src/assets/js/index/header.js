@@ -16,6 +16,8 @@ export const headerFunctionality = (function() {
 			
 			// Smooth navigation
 			ui.smoothScroll(e);
+
+			ui.mobileHeader(e);
 			
 			e.stopPropagation();
 		}

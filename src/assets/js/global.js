@@ -17,9 +17,6 @@ export const globalFunctionality = (function() {
 		// Function helpers
 		function scroll(e) {
 
-			// Scroll animation for header
-			ui.headerScroll();
-
 			requestAnimationFrame(ui.headerScroll);
 
 			// Image parallax scrolling effect
@@ -29,6 +26,9 @@ export const globalFunctionality = (function() {
 
 			// Reset scroll btn
 			ui.resetScroll(e);
+
+			// Reset header animation
+			ui.mobileHeader(e);
 			
 			e.stopPropagation();
 		}
@@ -37,6 +37,9 @@ export const globalFunctionality = (function() {
 			
 			// Check the page we are on so the header should be always visible
 			ui.headerPageVisible();
+
+			// Reset header animation
+			ui.mobileHeader(e);
 
 			e.stopPropagation();
 		}
