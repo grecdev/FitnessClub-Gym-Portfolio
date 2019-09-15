@@ -1,0 +1,167 @@
+/* 
+  ##Device = Laptops, Desktops
+  ##Screen = B/w 1025px to 1280px
+*/
+
+@media (min-width: 1025px) and (max-width: 1280px) {
+	
+	#login-container .login-form .facebook-login { font-size: .75rem }
+
+}
+
+/* 
+  ##Device = Tablets, Ipads (portrait)
+  ##Screen = B/w 768px to 1024px
+*/
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  
+  #login-container {
+		
+		.login-form {
+
+			.facebook-login {
+				font-size: .7rem;
+	
+				span { margin-left: 1rem }
+	
+				i { left: 5px }
+			}
+
+			form > a { font-size: .75rem }
+
+			.form-box button { font-size: .8rem }
+		}
+	}
+  
+}
+
+/* 
+  ##Device = Tablets, Ipads (landscape)
+  ##Screen = B/w 768px to 1024px
+*/
+
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+  
+	#login-container .login-form .facebook-login { font-size: .75rem }
+  
+}
+
+/*** Custom ***/
+@media (min-width: 812px) and (max-width: 824px) and (orientation: landscape) {
+  
+	#login-container {
+
+		@include flex(column, center, center);
+
+		.login-showcase { display: none }
+		
+		.login-form {
+
+			h2 {
+				font-size: 1rem;
+				margin-bottom: .5rem;
+			}
+
+			.facebook-login {
+				font-size: .7rem;
+	
+				span { margin-left: 1rem }
+	
+				i { left: 5px }
+			}
+
+			form > a { font-size: .75rem }
+
+			.form-box button { font-size: .8rem }
+		}
+	}
+}
+
+/* 
+  ##Device = Low Resolution Tablets, Mobiles (Landscape)
+  ##Screen = B/w 481px to 767px
+*/
+
+@media (min-width: 481px) and (max-width: 767px) {
+  
+  #login-container {
+
+		@include flex(column, center, center);
+
+		.login-showcase { display: none }
+		
+		.login-form {
+			
+			form {
+				width: 100%;
+				padding: 1rem;
+			}
+
+			h2 {
+				font-size: 1rem;
+				margin-bottom: .5rem;
+			}
+
+			.facebook-login {
+				font-size: .6rem;
+	
+				span { margin-left: 1rem }
+	
+				i { left: 30px }
+			}
+
+			.form-box button { font-size: .65rem }
+
+			form > a { font-size: .7rem }
+
+			& > p { font-size: .7rem }
+		}
+	}
+  
+}
+
+/* 
+  ##Device = Most of the Smartphones Mobiles (Portrait)
+  ##Screen = B/w 320px to 479px
+*/
+
+@media (min-width: 320px) and (max-width: 480px) {
+  
+  #login-container {
+
+		@include flex(column, center, center);
+
+		.login-showcase { display: none }
+		
+		.login-form {
+			
+			form {
+				width: 100%;
+				padding: 1rem;
+			}
+
+			h2 {
+				font-size: 1rem;
+				margin-bottom: .5rem;
+			}
+
+			.facebook-login {
+				font-size: .6rem;
+	
+				span { margin-left: 1rem }
+	
+				i { left: 20px }
+			}
+
+			.form-box button { font-size: .65rem }
+
+			form > a { font-size: .7rem }
+
+			& > p {
+				font-size: .7rem;
+				text-align: center;
+			}
+		}
+	}
+}
