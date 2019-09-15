@@ -33,8 +33,12 @@
 
 			::placeholder { @include font(.9rem, #555, 500) }
 
-			.form-box:first-child { @include flex(row, space-between, center) }
-			.form-box:nth-child(1) input { width: 49% }
+			.form-box:first-child {
+				@include flex(row, space-between, center);
+
+				input { width: 49% }
+			}
+			// .form-box:nth-child(1) 
 			.form-box:nth-child(2) input { width: 100% }
 			
 			.form-box:last-child { @include flex(row, center, center) }

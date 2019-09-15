@@ -4,20 +4,9 @@
 	color: $white;
 	position: relative;
 
-	&::before {
-		content: '';
-		position: absolute;
-    top: 0;
-    left: 0;
-    width: 0;
-    height: 0;
-    border-top: 50px solid #fff;
-    border-left: 100vw solid #0000;
-	}
-
 	.subscription-container {
 		@include flex(row, space-between, center);
-		padding: 5rem 1rem 1rem;
+		padding: 1rem 1rem;
 	}
 
 	.subscription-box {

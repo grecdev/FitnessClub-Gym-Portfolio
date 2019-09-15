@@ -4,8 +4,9 @@
 @import './sass_assets/utilities/reset_utility';
 
 // Global layout
-@import './sass_assets/layout/header';
-@import './sass_assets/layout/footer';
+@import './sass_assets/layout/global/header';
+@import './sass_assets/layout/global/footer';
+@import './sass_assets/layout/global/mobile_global';
 
 // Home Page
 @import './sass_assets/layout/index/showcase';
@@ -26,3 +27,5 @@
 
 // Responsive
 @import './sass_assets/layout/index/mobile_index';
+@import './sass_assets/layout/services/mobile_services';
+@import './sass_assets/layout/contact/mobile_contact';

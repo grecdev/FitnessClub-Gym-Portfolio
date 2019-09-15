@@ -1,0 +1,249 @@
+/*** Main header ***/
+#main-header {
+	color: $white;
+	@include flex(row, space-between, center);
+	padding: .5rem 1rem;
+	font-family: 'Chilanka', cursive;
+	z-index: 10;
+	position: fixed;
+	top: 0;
+	left: 0;
+	min-width: 100%;
+	transform: translateY(-20px);
+	opacity: 0;
+	transition: all 450ms ease-in-out;
+
+	/** Logo **/
+	.logo { @include font(1.5rem, $white, 500) }
+
+	/** Navigation Links **/
+	#header-navbar .main-list > li > a:hover, .active, #header-navbar .main-list > li:hover > a { color: $yellow-pale }
+
+	#header-navbar {
+
+		ul { @include flex(row, center, center) }
+
+		li { position: relative }
+		
+		li a {
+			padding: 1rem 1rem;
+			margin: 0 1rem;
+			transition: color 100ms ease-in-out;
+			position: relative;
+		}
+
+		/* Animation for active link / page */
+		li a::after {
+			content: '';
+			position: absolute;
+			width: 80%;
+			height: 2.3px;
+			background: $yellow-pale;
+			bottom: 10px;
+			left: 50%;
+			transform: translateX(-50%) scaleX(0);
+			transition: transform 200ms ease-in-out;
+		}
+
+		li a.active::after {
+			content: '';
+			transform: translateX(-50%) scaleX(1);
+		}
+	}
+}
+
+/** Header animation **/
+
+.header-intro { animation: headerIntro 1s ease-in-out forwards 1.4s }
+.header-scrolled { animation: headerScrolled 500ms ease-in-out forwards }
+.header-fixed { animation: headerFixed 500ms ease-in-out forwards }
+
+.header-visible {
+	transform: translate(0) !important;
+	opacity: 1 !important;
+	background: darken($green-eton, 15%);
+}
+
+@keyframes headerIntro {
+	from {
+		transform: translateY(-20px);
+		opacity: 0;
+	}
+	
+	to {
+		transform: translateY(15px);
+		opacity: 1;
+	}
+}
+
+@keyframes headerScrolled {
+	from {
+		background: transparent;
+		transform: translateY(15px);
+		opacity: 1;
+	}
+
+	to {
+		background: darken($green-eton, 15%);
+		transform: translateY(0);
+		opacity: 1;
+	}
+}
+
+@keyframes headerFixed {
+	from {
+		background: darken($green-eton, 15%);
+		transform: translateY(0);
+		opacity: 1;
+	}
+
+	to {
+		background: transparent;
+		transform: translateY(15px);
+		opacity: 1;
+	}
+}
+
+#header-mobile { display: none }
+
+.mobile-header-visible {
+	transform: translateY(0) !important;
+	opacity: 1 !important;
+	background: darken($green-eton, 15%) !important;
+}
+
+.mobile-header-menu-visible {
+	transform: translateY(0) !important;
+	opacity: 1 !important;
+	z-index: 3 !important;
+}
+
+/*** Responsive Header ***/
+/* 
+  ##Device = Low Resolution Tablets, Mobiles (Landscape)
+  ##Screen = B/w 481px to 767px
+*/
+
+@media (min-width: 481px) and (max-width: 767px) {
+
+	body { padding-bottom: 44.6rem }
+	
+	/*** INDEX PAGE ***/
+	/** Header **/
+	#header-navbar { display: none }
+
+	#main-header {
+		opacity: 1;
+		transform: translateY(0);
+	}
+
+	.header-intro { animation: none }
+	.header-scrolled { animation: none }
+	.header-fixed { animation: none }
+
+	#main-header .logo { font-size: 1.2rem }
+
+	/* Mobile header */
+	#header-mobile {
+		display: block;
+		margin-right: 1rem;
+		position: absolute;
+		width: 100%;
+		top: 0;
+		left: 0;
+		@include flex(column, flex-start, flex-start);
+
+		#show-mobile-menu, #hide-mobile-menu {
+			position: absolute;
+			right: 30px;
+			top: 10px;
+			z-index: 2;
+			width: 10%;
+			@include flex(column, center, center);
+		}
+
+		.bar-menu-container {
+			position: absolute;
+			top: 0;
+			left: 0;
+			background: $green-eton;
+			width: 100vw;
+			z-index: -1;
+			@include flex(column, center, center);
+			transform: translateY(-150px);
+			opacity: 0;
+			transition: all 500ms ease-in-out;
+
+			ul {
+				font-size: 1.2rem;
+				text-align: center;
+
+				li { margin: 1rem 0 }
+			}
+		}
+	}
+}
+
+/* 
+  ##Device = Most of the Smartphones Mobiles (Portrait)
+  ##Screen = B/w 320px to 479px
+*/
+
+@media (min-width: 320px) and (max-width: 480px) {
+
+	body { padding-bottom: 44.5rem }
+	
+	/*** INDEX PAGE ***/
+	/** Header **/
+	#main-header {
+		opacity: 1;
+		transform: translateY(0);
+	}
+
+	.header-intro { animation: none }
+
+	#header-navbar { display: none }
+
+	#main-header .logo { font-size: 1.2rem }
+
+	/* Mobile header */
+	#header-mobile {
+		display: block;
+		margin-right: 1rem;
+		position: absolute;
+		width: 100%;
+		top: 0;
+		left: 0;
+		@include flex(column, flex-start, flex-start);
+
+		#show-mobile-menu, #hide-mobile-menu {
+			position: absolute;
+			right: 30px;
+			top: 10px;
+			z-index: 2;
+			width: 10%;
+			@include flex(column, center, center);
+		}
+
+		.bar-menu-container {
+			position: absolute;
+			top: 0;
+			left: 0;
+			background: $green-eton;
+			width: 100vw;
+			height: 30vh;
+			z-index: -1;
+			@include flex(column, center, center);
+			transform: translateY(-150px);
+			opacity: 0;
+			transition: all 500ms ease-in-out;
+
+			ul {
+				font-size: 1.2rem;
+				text-align: center;
+
+				li { margin: 1rem 0 }
+			}
+		}
+	}
+}

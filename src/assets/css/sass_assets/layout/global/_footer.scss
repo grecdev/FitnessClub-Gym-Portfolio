@@ -1,0 +1,201 @@
+footer {
+	background: $dark-primary;
+	color: $white;
+	padding: 1.5rem 0;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+
+	.footer-container {
+		@include flex(row, space-between, center);
+		flex-wrap: wrap;
+	}
+
+	.footer-box:nth-child(1) {
+		@include flex(row, space-between, flex-start);
+		width: 50%;
+
+		ul {
+			@include font(1.2rem, inherit, 300);
+	
+			a { transition: all 100ms ease-in-out }
+	
+			a:hover { color: $green-eton }	
+		}
+	}
+
+	.footer-box:nth-child(2) {
+		@include flex(column, flex-start, space-between);
+
+		a {
+			margin: 1rem 0;
+			background: #111;
+			@include flex(row, center, center);
+			border-radius: $border-radius-xs;
+
+			i {
+				margin: 0;
+				margin-right: .3rem;
+				padding: 0;
+			}
+
+			&:hover { background: lighten(#111, 5%) }
+		}
+
+		a:first-child {
+			font-size: .9rem;
+			padding: 0.5rem .5rem 0.5rem .5rem;
+
+			i { font-size: 1rem }
+		}
+
+		a:last-child {
+			font-size: .9rem;
+			padding: 0.5rem .5rem 0.5rem 0rem;
+
+			i { font-size: 1.2rem; }
+		}
+	}
+
+	.footer-social {
+		width: 100%;
+		margin-top: 1rem;
+		font-size: 2rem;
+
+		span {
+			margin: 0 1rem;
+			transition: all 200ms ease-in-out;
+
+			&:nth-child(1):hover { color: #1da1f2 }
+			&:nth-child(2):hover { color: #3e5c99 }
+			&:nth-child(4):hover { color: $times-red }
+		}
+
+		.instagram .fab:hover {
+			background: #d6249f;
+			background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%,#d6249f 60%,#285AEB 90%);
+			background-clip: text;
+			-webkit-background-clip: text;
+			-webkit-text-fill-color: transparent;
+		}
+	}
+}
+
+/*** Responsive Footer ***/
+/* 
+  ##Device = Tablets, Ipads (portrait)
+  ##Screen = B/w 768px to 1024px
+*/	
+
+@media (min-width: 768px) and (max-width: 1024px) {
+
+	body { padding-bottom: 14.6rem }
+
+	/** Footer **/
+	footer {
+
+		padding: 1.5rem 1rem;
+
+		.footer-container { @include flex(row, space-between, center) }
+
+		.footer-box:nth-child(1) {
+			width: 75%;
+			@include flex(row, space-around, flex-start);
+
+			ul { @include font(1rem, inherit, 300) }
+	}
+
+		.footer-social { font-size: 1.5rem }
+
+		.footer-box:nth-child(2) {
+			
+			a:first-child {
+				font-size: .8rem;
+
+				i { font-size: .9rem }
+			}
+
+			a:last-child {
+				font-size: .8rem;
+
+				i { font-size: 1.1rem }
+			}
+		}
+	}
+}
+
+/* 
+  ##Device = Low Resolution Tablets, Mobiles (Landscape)
+  ##Screen = B/w 481px to 767px
+*/
+
+@media (min-width: 481px) and (max-width: 767px) {
+
+	body { padding-bottom: 44.6rem }
+
+	/** Footer **/
+	footer {
+
+		.footer-container { @include flex(column, center, center) }
+
+		/* Footer list */
+		.footer-box:nth-child(1) {
+			@include flex(column, center, center);
+			width: 100%;
+
+			ul {
+				margin: 1rem 0;
+				@include flex(column, center, center);
+			}
+		}
+
+		/* Social links */
+		.footer-social {
+			margin-top: 2rem;
+			@include grid(repeat(2, 1fr), 1rem);
+			
+			span:nth-child(1), span:nth-child(3) { text-align: right }
+
+			span:nth-child(2), span:nth-child(4) { text-align: left }
+		}
+	}
+}
+
+/* 
+  ##Device = Most of the Smartphones Mobiles (Portrait)
+  ##Screen = B/w 320px to 479px
+*/
+
+@media (min-width: 320px) and (max-width: 480px) {
+
+	body { padding-bottom: 44.5rem }
+
+	/** Footer **/
+	footer {
+
+		.footer-container { @include flex(column, center, center) }
+
+		/* Footer list */
+		.footer-box:nth-child(1) {
+			@include flex(column, center, center);
+			width: 100%;
+
+			ul {
+				margin: 1rem 0;
+				@include flex(column, center, center);
+			}
+		}
+
+		/* Social links */
+		.footer-social {
+			margin-top: 2rem;
+			@include grid(repeat(2, 1fr), 1rem);
+			
+
+			span:nth-child(1), span:nth-child(3) { text-align: right }
+
+			span:nth-child(2), span:nth-child(4) { text-align: left }
+		}
+	}
+}

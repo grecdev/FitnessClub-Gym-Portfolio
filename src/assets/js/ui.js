@@ -69,16 +69,16 @@ class Ui {
 		// If we scroll show animation for home page
 		if(window.location.pathname === '/' || window.location.pathname.includes('index')) {
 			// Make header visible / hidden
-			if(currentPosition > 2 && window.matchMedia('(max-width: 768px)').matches === false) {
+			if(currentPosition > 2 && window.matchMedia('(max-width: 767px)').matches === false) {
 				ui.header.classList.remove('header-intro', 'header-fixed');
 				ui.header.classList.add('header-scrolled');
-			} else if(currentPosition < 1 && window.matchMedia('(max-width: 768px)').matches === false){
+			} else if(currentPosition < 1 && window.matchMedia('(max-width: 767px)').matches === false){
 				ui.header.classList.remove('header-scrolled');
 				ui.header.classList.add('header-fixed');
 			}
 
 			// Make header link active when section is in viewport
-			if(currentPosition >= 672 && currentPosition <= 775) {
+			if(currentPosition >= 672 && currentPosition <= 775 && window.matchMedia('(max-width: 768px)').matches === false) {
 
 				document.querySelectorAll('.active').forEach(active => active.classList.remove('active'));
 				document.querySelector('#header-navbar .main-list').children[0].children[0].classList.add('active');
@@ -86,7 +86,7 @@ class Ui {
 			} else document.querySelector('#header-navbar .main-list').children[0].children[0].classList.remove('active');
 
 			// Make header link active when section is in viewport
-			if(currentPosition >= 1553 && currentPosition <= 1726) {
+			if(currentPosition >= 1553 && currentPosition <= 1726 && window.matchMedia('(max-width: 768px)').matches === false) {
 				
 				document.querySelectorAll('.active').forEach(active => active.classList.remove('active'));
 				document.querySelector('#header-navbar .main-list').children[1].children[0].classList.add('active')
@@ -120,12 +120,14 @@ class Ui {
 	resetScroll(e) {
 		if(e.type === 'scroll') {
 
-			const currentPosition = Math.floor(window.pageYOffset);
-	
-			if(currentPosition >= 1172) this.resetScroll_btn.classList.add('reset-btn-visible')
-			else this.resetScroll_btn.classList.remove('reset-btn-visible')
-	
-			requestAnimationFrame(ui.parallaxImage);
+			if(document.body.contains(this.resetScroll_btn)) {
+				const currentPosition = Math.floor(window.pageYOffset);
+		
+				if(currentPosition >= 1172) this.resetScroll_btn.classList.add('reset-btn-visible')
+				else this.resetScroll_btn.classList.remove('reset-btn-visible')
+		
+				requestAnimationFrame(ui.parallaxImage);
+			}
 
 		}
 

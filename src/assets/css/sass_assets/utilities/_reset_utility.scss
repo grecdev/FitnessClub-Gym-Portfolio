@@ -57,7 +57,7 @@ body {
 	overflow-x: hidden;
 	position: relative;
 	min-height: 100%;
-	padding-bottom: $footer-height-desktop;
+	padding-bottom: 15.7rem;
 }
 
 /* Responsive images */
@@ -225,7 +225,7 @@ i { margin-left: .5rem; }
 
 /** Section headers **/
 .section-header {
-	padding: 2rem 0;
+	padding: 2rem;
 	position: relative;
 	color: $white;
 	background: $dark-primary;
