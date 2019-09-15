@@ -103,17 +103,19 @@ class Ui {
 	// Parallax scroll background images
 	parallaxImage() {
 		// Get all parallax background images
-		const backgroundImages = document.querySelectorAll('.parallax-image');
-
-		backgroundImages.forEach(image => {
-			// Get the position of each image on Y / top axis
-			let pos = Math.floor(image.getBoundingClientRect().top) / 3;
-			
-			// Set the style
-			image.style.backgroundPosition = `center ${pos}px`;
-		});
-
-		requestAnimationFrame(ui.parallaxImage);
+		if(window.matchMedia('(max-width: 768px)').matches === false) {
+			const backgroundImages = document.querySelectorAll('.parallax-image');
+	
+			backgroundImages.forEach(image => {
+				// Get the position of each image on Y / top axis
+				let pos = Math.floor(image.getBoundingClientRect().top) / 3;
+				
+				// Set the style
+				image.style.backgroundPosition = `center ${pos}px`;
+			});
+	
+			requestAnimationFrame(ui.parallaxImage);
+		}
 	}
 
 	// Reset scroll btn

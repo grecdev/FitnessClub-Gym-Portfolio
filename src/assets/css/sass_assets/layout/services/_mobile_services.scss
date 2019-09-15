@@ -1,24 +1,89 @@
-
-/* 
-  ##Device = Desktops
-  ##Screen = 1281px to higher resolution desktops
-*/
-
-@media (min-width: 1281px) {
-  
-  //CSS
-  
-}
-
 /* 
   ##Device = Laptops, Desktops
   ##Screen = B/w 1025px to 1280px
 */
 
 @media (min-width: 1025px) and (max-width: 1280px) {
-  
-  //CSS
-  
+	
+	/*** Services showcase ***/
+	#services-showcase {
+
+		.services-list ul li { @include font(1rem, inherit, 500) }
+
+		& > a {
+			bottom: 0;
+			font-size: 1.5rem;
+		}
+
+		.program { font-size: 1rem }
+	}
+
+  /** Global styles for each section **/
+	#pool-area, #equipment-area, #boxing-area, #trainer-area, #dancing-area {
+		width: 100vw;
+		height: 100vh;
+		position: relative;
+
+		.services-description {
+
+			padding: 3rem 2rem 0;
+
+			p {
+				font-size: .9rem;
+				margin-bottom: 1rem;
+			}
+
+			p:nth-child(5) { margin: 0 }
+
+			h4 {
+				font-size: .9rem;
+				margin-bottom: 1rem;
+			}
+
+			h2 {
+				@include font(1.1rem, inherit, 400);
+				margin-bottom: 1rem;
+			}
+		}
+	}
+
+	/* Boxing area */
+	#boxing-area {
+		padding: 5rem 0 2rem;
+
+		.services-description {
+
+			padding: 1rem 2rem;
+
+			p {
+				font-size: .9rem;
+				margin-bottom: 1rem;
+			}
+
+			p:nth-child(5) { margin: 0 }
+
+			h4 {
+				font-size: .9rem;
+				margin-bottom: 1rem;
+			}
+
+			h2 {
+				@include font(1.1rem, inherit, 400);
+				margin-bottom: 1rem;
+			}
+		}
+	}
+
+	/** Services page arrows **/
+	.service-down-arrow, .service-up-arrow {
+		display: inline-block;
+		position: absolute;
+		left: 50%;
+		transform: translateX(-50%);
+		font-size: 1.3rem;
+	}
+
+	.service-up-arrow { top: 50px }
 }
 
 /* 
@@ -28,7 +93,88 @@
 
 @media (min-width: 768px) and (max-width: 1024px) {
   
+  /*** Services showcase ***/
+	#services-showcase {
 
+		.services-list ul li { @include font(1rem, inherit, 500) }
+
+		& > a {
+			bottom: 0px;
+			font-size: 1.5rem;
+		}
+
+		.program { font-size: 1rem }
+	}
+
+  /** Global styles for each section **/
+	#pool-area, #equipment-area, #boxing-area, #trainer-area, #dancing-area {
+		width: 100vw;
+		height: 50vh;
+		position: relative;
+
+		.services-description {
+			padding: 0 2rem;
+
+			p {
+				font-size: .9rem;
+				margin-bottom: 1rem;
+			}
+
+			p:nth-child(5) { margin: 0 }
+
+			h4 {
+				font-size: .9rem;
+				margin-bottom: 1rem;
+			}
+
+			h2 {
+				@include font(1.1rem, inherit, 400);
+				margin-bottom: 1rem;
+			}
+		}
+	}
+
+	/* Boxing area */
+	#boxing-area {
+		padding: 5rem 0 2rem;
+
+		.services-description {
+			padding: 1rem 2rem;
+
+			p {
+				font-size: .9rem;
+				margin-bottom: 1rem;
+			}
+
+			p:nth-child(5) { margin: 0 }
+
+			h4 {
+				font-size: .9rem;
+				margin-bottom: 1rem;
+			}
+
+			h2 {
+				@include font(1.1rem, inherit, 400);
+				margin-bottom: 1rem;
+			}
+		}
+
+		.service-down-arrow { bottom: 10px }
+		.service-up-arrow { top: 10px }
+	}
+
+	/** Services page arrows **/
+	.service-down-arrow, .service-up-arrow {
+		display: inline-block;
+		position: absolute;
+		left: 50%;
+		transform: translateX(-50%);
+		font-size: 1.3rem;
+	}
+
+	.service-down-arrow { bottom: 40px }
+	.service-up-arrow { top: 50px }
+  
 }
 
 /* 
@@ -38,7 +184,87 @@
 
 @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
   
-  //CSS
+  /*** Services showcase ***/
+	#services-showcase {
+
+		.services-list ul li { @include font(1rem, inherit, 500) }
+
+		& > a {
+			bottom: 0px;
+			font-size: 1.5rem;
+		}
+
+		.program { font-size: 1rem }
+	}
+
+  /** Global styles for each section **/
+	#pool-area, #equipment-area, #boxing-area, #trainer-area, #dancing-area {
+		width: 100vw;
+		height: 100vh;
+		position: relative;
+
+		.services-description {
+			padding: 0 2rem;
+
+			p {
+				font-size: .9rem;
+				margin-bottom: 1rem;
+			}
+
+			p:nth-child(5) { margin: 0 }
+
+			h4 {
+				font-size: .9rem;
+				margin-bottom: 1rem;
+			}
+
+			h2 {
+				@include font(1.1rem, inherit, 400);
+				margin-bottom: 1rem;
+			}
+		}
+	}
+
+	/* Boxing area */
+	#boxing-area {
+		padding: 5rem 0 2rem;
+
+		.services-description {
+			padding: 1rem 2rem;
+
+			p {
+				font-size: .9rem;
+				margin-bottom: 1rem;
+			}
+
+			p:nth-child(5) { margin: 0 }
+
+			h4 {
+				font-size: .9rem;
+				margin-bottom: 1rem;
+			}
+
+			h2 {
+				@include font(1.1rem, inherit, 400);
+				margin-bottom: 1rem;
+			}
+		}
+
+		.service-down-arrow { bottom: 10px }
+		.service-up-arrow { top: 10px }
+	}
+
+	/** Services page arrows **/
+	.service-down-arrow, .service-up-arrow {
+		display: inline-block;
+		position: absolute;
+		left: 50%;
+		transform: translateX(-50%);
+		font-size: 1.3rem;
+	}
+
+	.service-down-arrow { bottom: 40px }
+	.service-up-arrow { top: 50px }
   
 }
 
@@ -49,8 +275,107 @@
 
 @media (min-width: 481px) and (max-width: 767px) {
   
-  //CSS
-  
+	.services-reset { padding-top: 2.6rem }
+
+	#services-showcase {
+
+		.services-list {
+			@include flex(column, center, center);
+			margin-top: 3rem;
+	
+			ul:first-child {
+				width: 50%;
+				margin-bottom: 2rem;
+			}
+	
+			ul {
+				text-align: center;
+
+				li { @include font(1rem, inherit, 500) }
+	
+				li:nth-child(odd) { color: $green-eton }
+			}
+		}
+	}
+
+	.program {
+		@include flex(column, center, center);
+
+		h3 { font-size: 1rem }
+
+		.program-box {
+			@include flex(row, space-between, center);
+			position: relative;
+			font-size: 1rem;
+			
+			ul {
+				position: relative;
+				margin-left: 1rem;
+				padding-top: 1rem;
+			}
+
+			ul::before {
+				content: '';
+				position: absolute;
+				top: 0;
+				left: 50%;
+				transform: translateX(-50%);
+				height: 3px;
+				width: 50%;
+				background: $dark-primary	;
+			}
+		}
+	}
+
+	/** Global styles for each section **/
+	#pool-area, #equipment-area, #boxing-area, #trainer-area, #dancing-area {
+		width: 100vw;
+		height: 100%;
+		position: relative;
+
+		.services-description {
+			padding: 2rem;
+
+			p {
+				font-size: .7rem;
+				margin-bottom: 1rem;
+			}
+
+			p:nth-child(5) { margin: 0 }
+
+			h4 {
+				font-size: .7rem;
+				margin-bottom: 1rem;
+			}
+
+			h2 {
+				@include font(1rem, inherit, 400);
+				margin-bottom: 1rem;
+				text-align: center;
+			}
+		}
+	}
+
+	.parallax-image { background-attachment: scroll !important }
+
+	/** Services page arrows **/
+	.service-down-arrow, .service-up-arrow {
+		display: inline-block;
+		position: absolute;
+		left: 50%;
+		transform: translateX(-50%);
+		font-size: 1.3rem;
+	}
+
+	.service-down-arrow {
+		bottom: -10px; 
+		font-size: 1rem;
+	}
+
+	.service-up-arrow {
+		top: -10px; 
+		font-size: 1rem;
+	}
 }
 
 /* 
@@ -59,7 +384,68 @@
 */
 
 @media (min-width: 320px) and (max-width: 480px) {
-  
-  //CSS
-  
+	
+	.services-reset { padding: 2.7rem 0 0 0 }
+
+	.section-header h1 { font-size: 1.5rem }
+
+	#services-showcase {
+
+		.services-list {
+			@include flex(column, flex-start, center);
+			
+			ul:first-child {
+				width: 100%;
+				margin-bottom: 1rem;
+			}
+
+			ul {
+				width: 100%;
+				text-align: center;
+
+				li { @include font(1rem, inherit, 500) }
+			}
+		}
+	}
+
+	.program {
+
+		h3 { font-size: 1.3rem }
+
+		.program-box {
+			
+			ul { font-size: 1rem }
+		}
+	}
+
+	/** Services sections **/
+	#pool-area, #equipment-area, #boxing-area, #trainer-area, #dancing-area {
+		@include flex(column, center, center);
+		padding: 2rem 0;
+		
+		.services-description {
+			width: 80%;
+
+			h2 { font-size: 1.3rem }
+
+			h4 { font-size: .8rem }
+
+			p { font-size: .8rem }
+		}
+
+		.services-description::after, .services-description::before { display: none }
+	}
+
+	/** Services page arrows **/
+	.service-down-arrow, .service-up-arrow {
+		display: inline-block;
+		position: absolute;
+		left: 50%;
+		transform: translateX(-50%);
+		font-size: 1rem;
+	}
+
+	.service-up-arrow { top: 0 }
+	.service-down-arrow { bottom: 0 }
+
 }
