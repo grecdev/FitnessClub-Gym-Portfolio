@@ -528,20 +528,21 @@
 /** Custom: Iphone SE **/
 @media (max-width: 320px) {
 	#pool-area, #equipment-area, #boxing-area, #trainer-area, #dancing-area {
-
+		padding: 0;
+	
 		.services-description {
-			width: 90%;
+			width: 100%;
+			height: 100%;
+			padding: 0 1rem;
 
-			h2,
-			h4,
-			p {
-				margin-bottom: .5rem;
-			}
+			h2, h4, p { margin-bottom: .5rem }
 		}
 	}
 
 	.service-down-arrow, .service-up-arrow { margin: 0 }
 
-	.service-up-arrow { top: 0 }
+	.service-up-arrow,
+	#boxing-area .service-up-arrow { top: 50px }
+	
 	.service-down-arrow { bottom: 0 }
 }
