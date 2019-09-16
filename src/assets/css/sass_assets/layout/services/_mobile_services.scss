@@ -417,7 +417,7 @@
 		h3 { font-size: 1.3rem }
 
 		.program-box {
-			
+
 			ul { font-size: 1rem }
 		}
 	}
@@ -520,6 +520,27 @@
 		width: 30px;
 		height: 30px;
 	}
+
+	.service-up-arrow { top: 0 }
+	.service-down-arrow { bottom: 0 }
+}
+
+/** Custom: Iphone SE **/
+@media (max-width: 320px) {
+	#pool-area, #equipment-area, #boxing-area, #trainer-area, #dancing-area {
+
+		.services-description {
+			width: 90%;
+
+			h2,
+			h4,
+			p {
+				margin-bottom: .5rem;
+			}
+		}
+	}
+
+	.service-down-arrow, .service-up-arrow { margin: 0 }
 
 	.service-up-arrow { top: 0 }
 	.service-down-arrow { bottom: 0 }

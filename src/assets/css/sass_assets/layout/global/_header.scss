@@ -126,8 +126,6 @@
 
 @media (min-width: 481px) and (max-width: 767px) {
 
-	body { padding-bottom: 44.6rem }
-	
 	/*** INDEX PAGE ***/
 	/** Header **/
 	#header-navbar { display: none }
@@ -190,8 +188,6 @@
 */
 
 @media (min-width: 320px) and (max-width: 480px) {
-
-	body { padding-bottom: 44.5rem }
 	
 	/*** INDEX PAGE ***/
 	/** Header **/
@@ -239,7 +235,7 @@
 			transition: all 500ms ease-in-out;
 
 			ul {
-				font-size: 1.2rem;
+				font-size: .9rem;
 				text-align: center;
 
 				li { margin: 1rem 0 }
