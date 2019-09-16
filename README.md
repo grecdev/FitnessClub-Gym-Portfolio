@@ -19,3 +19,5 @@ Website for a fictional gym. For personal portofolio.
 - Media Queries ( Responsive Design )
 - Vanilla Javascript + Jump.js Library for smooth scroll
 - Semantic HTML5
+
+**Refresh the page after choosing responsive device**
