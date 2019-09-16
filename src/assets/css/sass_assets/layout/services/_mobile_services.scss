@@ -106,61 +106,23 @@
 		.program { font-size: 1rem }
 	}
 
-  /** Global styles for each section **/
+  /** Services sections **/
 	#pool-area, #equipment-area, #boxing-area, #trainer-area, #dancing-area {
-		width: 100vw;
+		@include flex(column, center, center);
+		padding: 2rem 0;
 		height: 50vh;
-		position: relative;
-
+		
 		.services-description {
-			padding: 0 2rem;
+			width: 80%;
 
-			p {
-				font-size: .9rem;
-				margin-bottom: 1rem;
-			}
+			h2 { font-size: 1.3rem }
 
-			p:nth-child(5) { margin: 0 }
+			h4 { font-size: .8rem }
 
-			h4 {
-				font-size: .9rem;
-				margin-bottom: 1rem;
-			}
-
-			h2 {
-				@include font(1.1rem, inherit, 400);
-				margin-bottom: 1rem;
-			}
-		}
-	}
-
-	/* Boxing area */
-	#boxing-area {
-		padding: 5rem 0 2rem;
-
-		.services-description {
-			padding: 1rem 2rem;
-
-			p {
-				font-size: .9rem;
-				margin-bottom: 1rem;
-			}
-
-			p:nth-child(5) { margin: 0 }
-
-			h4 {
-				font-size: .9rem;
-				margin-bottom: 1rem;
-			}
-
-			h2 {
-				@include font(1.1rem, inherit, 400);
-				margin-bottom: 1rem;
-			}
+			p { font-size: .8rem }
 		}
 
-		.service-down-arrow { bottom: 10px }
-		.service-up-arrow { top: 10px }
+		.services-description::after, .services-description::before { display: none }
 	}
 
 	/** Services page arrows **/
@@ -169,11 +131,13 @@
 		position: absolute;
 		left: 50%;
 		transform: translateX(-50%);
-		font-size: 1.3rem;
+		font-size: 1rem;
+		width: 30px;
+		height: 30px;
 	}
 
-	.service-down-arrow { bottom: 40px }
-	.service-up-arrow { top: 50px }
+	.service-up-arrow { top: 0 }
+	.service-down-arrow { bottom: 0 }
   
 }
 
@@ -202,7 +166,7 @@
   /** Global styles for each section **/
 	#pool-area, #equipment-area, #boxing-area, #trainer-area, #dancing-area {
 		width: 100vw;
-		height: 100vh;
+		height: 70vh;
 		position: relative;
 
 		.services-description {
@@ -496,6 +460,7 @@
 	#pool-area, #equipment-area, #boxing-area, #trainer-area, #dancing-area {
 		@include flex(column, center, center);
 		padding: 2rem 0;
+		height: 100vh;
 		
 		.services-description {
 			width: 80%;
@@ -522,7 +487,7 @@
 	}
 
 	.service-up-arrow { top: 0 }
-	.service-down-arrow { bottom: 0 }
+	.service-down-arrow { bottom: -20px }
 }
 
 /** Custom: Iphone SE **/
