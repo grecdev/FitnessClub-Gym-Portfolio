@@ -31,7 +31,7 @@ class Ui {
 			else if(e.target.getAttribute('href') === '#subscription') {
 				// Close mobile header menu
 				this.mobile_menu.classList.remove('mobile-header-menu-visible')
-				jump('#subscription', { duration: 600 });
+				jump('#subscription', { duration: 600,  offset: -50});
 
 				// Prevent default => so we don't overwrite header animations
 				e.preventDefault();
@@ -77,16 +77,16 @@ class Ui {
 				ui.header.classList.add('header-fixed');
 			}
 
-			// Make header link active when section is in viewport
-			if(currentPosition >= 672 && currentPosition <= 775 && window.matchMedia('(max-width: 768px)').matches === false) {
+			// Make header link active when section is in viewport for services section
+			if(currentPosition >= 672 && currentPosition <= 775 && window.matchMedia('(max-width: 1024px)').matches === false) {
 
 				document.querySelectorAll('.active').forEach(active => active.classList.remove('active'));
 				document.querySelector('#header-navbar .main-list').children[0].children[0].classList.add('active');
 
 			} else document.querySelector('#header-navbar .main-list').children[0].children[0].classList.remove('active');
 
-			// Make header link active when section is in viewport
-			if(currentPosition >= 1553 && currentPosition <= 1726 && window.matchMedia('(max-width: 768px)').matches === false) {
+			// Make header link active when section is in viewport for subscription section
+			if(currentPosition >= 1504 && currentPosition <= 1726 && window.matchMedia('(max-width: 1024px)').matches === false) {
 				
 				document.querySelectorAll('.active').forEach(active => active.classList.remove('active'));
 				document.querySelector('#header-navbar .main-list').children[1].children[0].classList.add('active')
@@ -121,8 +121,9 @@ class Ui {
 	// Reset scroll btn
 	resetScroll(e) {
 		if(e.type === 'scroll') {
-
+			// Check for pages that have the reset btn
 			if(document.body.contains(this.resetScroll_btn)) {
+				
 				const currentPosition = Math.floor(window.pageYOffset);
 		
 				if(currentPosition >= 1172) this.resetScroll_btn.classList.add('reset-btn-visible')
