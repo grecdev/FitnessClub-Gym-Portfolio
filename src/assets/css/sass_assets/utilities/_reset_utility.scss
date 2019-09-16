@@ -248,7 +248,7 @@ i { margin-left: .5rem; }
 .header-height { margin-top: $header-height }
 
 /** Parallax effect ( implemented with js ) **/
-.parallax-image { background-attachment: scroll !important }
+.parallax-image { background-attachment: fixed !important }
 
 /** Overlay effect **/
 .overlay-bg {

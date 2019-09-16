@@ -183,7 +183,9 @@
 */
 
 @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
-  
+	
+	.services-reset { padding: 2.6rem 0 0 0 }
+
   /*** Services showcase ***/
 	#services-showcase {
 
@@ -275,7 +277,7 @@
 
 @media (min-width: 481px) and (max-width: 767px) {
   
-	.services-reset { padding-top: 2.6rem }
+	.services-reset { padding: 2.6rem 0 0 0 }
 
 	#services-showcase {
 
@@ -387,6 +389,8 @@
 	
 	.services-reset { padding: 2.7rem 0 0 0 }
 
+	.parallax-image { background-attachment: scroll !important }
+
 	.section-header h1 { font-size: 1.5rem }
 
 	#services-showcase {
@@ -443,9 +447,80 @@
 		left: 50%;
 		transform: translateX(-50%);
 		font-size: 1rem;
+		width: 30px;
+		height: 30px;
 	}
 
 	.service-up-arrow { top: 0 }
 	.service-down-arrow { bottom: 0 }
+}
 
+/*** Custom: Iphone && Pixel 2XL ***/
+@media screen and (min-width: 812px) and (max-width: 824px) {
+	.services-reset { padding: 2.7rem 0 0 0 }
+
+	.parallax-image { background-attachment: scroll !important }
+
+	.section-header h1 { font-size: 1.5rem }
+
+	#services-showcase {
+
+		.services-list {
+			@include flex(column, flex-start, center);
+			
+			ul:first-child {
+				width: 100%;
+				margin-bottom: 1rem;
+			}
+
+			ul {
+				width: 100%;
+				text-align: center;
+
+				li { @include font(1rem, inherit, 500) }
+			}
+		}
+	}
+
+	.program {
+
+		h3 { font-size: 1.3rem }
+
+		.program-box {
+			
+			ul { font-size: 1rem }
+		}
+	}
+
+	/** Services sections **/
+	#pool-area, #equipment-area, #boxing-area, #trainer-area, #dancing-area {
+		@include flex(column, center, center);
+		padding: 2rem 0;
+		
+		.services-description {
+			width: 80%;
+
+			h2 { font-size: 1.3rem }
+
+			h4 { font-size: .8rem }
+
+			p { font-size: .8rem }
+		}
+
+		.services-description::after, .services-description::before { display: none }
+	}
+
+	/** Services page arrows **/
+	.service-down-arrow, .service-up-arrow {
+		display: inline-block;
+		position: absolute;
+		left: 50%;
+		transform: translateX(-50%);
+		font-size: 1rem;
+		width: 30px;
+		height: 30px;
+	}
+
+	.service-up-arrow { top: 0 }
+	.service-down-arrow { bottom: 0 }
 }

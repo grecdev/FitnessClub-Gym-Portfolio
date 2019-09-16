@@ -165,3 +165,130 @@
 		}
 	}
 }
+
+/*** Custom: Iphone && Pixel 2XL ***/
+@media screen and (min-width: 812px) and (max-width: 824px) {
+	#login-container {
+
+		@include flex(column, center, center);
+
+		.login-showcase { display: none }
+		
+		.login-form {
+			
+			form {
+				width: 100%;
+				padding: 1rem;
+			}
+
+			h2 {
+				font-size: 1rem;
+				margin-bottom: .5rem;
+			}
+
+			.facebook-login {
+				font-size: .6rem;
+	
+				span { margin-left: 1rem }
+	
+				i { left: 20px }
+			}
+
+			.form-box button { font-size: .65rem }
+
+			form > a { font-size: .7rem }
+
+			& > p {
+				font-size: .7rem;
+				text-align: center;
+			}
+		}
+	}
+}
+
+/*** Custom: Iphone SE (landscape) ***/
+@media screen and (max-width: 568px) {
+	#login-container {
+
+		@include flex(column, center, center);
+
+		.login-showcase { display: none }
+		
+		.login-form {
+			width: 80%;
+
+			form {
+				padding: 1rem;
+				margin: .5rem 0;
+
+				.form-box { margin-bottom: .5rem }
+			}
+
+			h2 {
+				font-size: 1rem;
+				margin-bottom: 0;
+			}
+
+			.facebook-login {
+				font-size: .6rem;
+	
+				span { margin-left: 1rem }
+	
+				i { left: 20px }
+			}
+
+			.form-box button { font-size: .65rem }
+
+			form > a { font-size: .7rem }
+
+			& > p {
+				font-size: .7rem;
+				text-align: center;
+			}
+		}
+	}
+}
+
+/*** Custom: Iphone SE (Portrait) ***/
+@media screen and (max-width: 320px) {
+	#login-container {
+
+		@include flex(column, center, center);
+
+		.login-showcase { display: none }
+		
+		.login-form {
+
+			width: 90%;
+			
+			form {
+				padding: 1rem;
+				margin: .5rem 0;
+
+				.form-box { margin-bottom: .5rem }
+			}
+
+			h2 {
+				font-size: 1rem;
+				margin-bottom: 0;
+			}
+
+			.facebook-login {
+				font-size: .6rem;
+	
+				span { margin-left: 1rem }
+	
+				i { left: 20px }
+			}
+
+			.form-box button { font-size: .65rem }
+
+			form > a { font-size: .7rem }
+
+			& > p {
+				font-size: .7rem;
+				text-align: center;
+			}
+		}
+	}
+}

@@ -103,7 +103,7 @@ class Ui {
 	// Parallax scroll background images
 	parallaxImage() {
 		// Get all parallax background images
-		if(window.matchMedia('(max-width: 768px)').matches === false) {
+		if(window.matchMedia('(max-width: 768px)').matches === false && window.matchMedia('(min-width: 812px) and (max-width: 824px)').matches === false) {
 			const backgroundImages = document.querySelectorAll('.parallax-image');
 	
 			backgroundImages.forEach(image => {
