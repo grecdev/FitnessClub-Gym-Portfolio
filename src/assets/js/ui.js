@@ -101,20 +101,23 @@ class Ui {
 	headerPageVisible() { if(window.location.pathname !== '/' && !window.location.pathname.includes('index') && document.body.contains(this.header)) this.header.classList.add('header-visible') }
 
 	// Parallax scroll background images
-	parallaxImage() {
+	parallaxImage(e) {
 		// Get all parallax background images
-		if(window.matchMedia('(max-width: 768px)').matches === false && window.matchMedia('(min-width: 812px) and (max-width: 824px)').matches === false) {
-			const backgroundImages = document.querySelectorAll('.parallax-image');
+		if(e.type === 'scroll' || e.type === 'DOMContentLoaded') {
+
+			if(window.matchMedia('(max-width: 768px)').matches === false && window.matchMedia('(min-width: 812px) and (max-width: 824px)').matches === false) {
+				const backgroundImages = document.querySelectorAll('.parallax-image');
 	
-			backgroundImages.forEach(image => {
-				// Get the position of each image on Y / top axis
-				let pos = Math.floor(image.getBoundingClientRect().top) / 3;
+				backgroundImages.forEach(image => {
+					// Get the position of each image on Y / top axis
+					let pos = Math.floor(image.getBoundingClientRect().top) / 3;
 				
-				// Set the style
-				image.style.backgroundPosition = `center ${pos}px`;
-			});
+					// Set the style
+					image.style.backgroundPosition = `center ${pos}px`;
+				});
 	
-			requestAnimationFrame(ui.parallaxImage);
+				requestAnimationFrame(ui.parallaxImage);
+			}
 		}
 	}
 
@@ -129,7 +132,7 @@ class Ui {
 				if(currentPosition >= 1172) this.resetScroll_btn.classList.add('reset-btn-visible')
 				else this.resetScroll_btn.classList.remove('reset-btn-visible')
 		
-				requestAnimationFrame(ui.parallaxImage);
+				requestAnimationFrame(ui.resetScroll);
 			}
 
 		}
@@ -157,6 +160,8 @@ class Ui {
 			}
 			
 		}
+
+		requestAnimationFrame(ui.mobileHeader);
 
 	}
 }
