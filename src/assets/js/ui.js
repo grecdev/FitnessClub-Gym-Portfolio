@@ -63,49 +63,45 @@ class Ui {
 
 	// Header animation on scroll
 	headerScroll() {
+
 		// Get the scroll position
 		const currentPosition = Math.floor(pageYOffset);
 		
 		// If we scroll show animation for home page
 		if(window.location.pathname === '/' || window.location.pathname.includes('index')) {
 			// Make header visible / hidden
-			if(currentPosition > 2 && window.matchMedia('(max-width: 767px)').matches === false) {
+			if(currentPosition > 2 && !window.matchMedia('(max-width: 767px)').matches) {
+
 				ui.header.classList.remove('header-intro', 'header-fixed');
 				ui.header.classList.add('header-scrolled');
-			} else if(currentPosition < 1 && window.matchMedia('(max-width: 767px)').matches === false){
+
+			} else if(currentPosition < 1 && !window.matchMedia('(max-width: 767px)').matches){
+
 				ui.header.classList.remove('header-scrolled');
 				ui.header.classList.add('header-fixed');
+
 			}
 
-			// Make header link active when section is in viewport for services section
-			if(currentPosition >= 672 && currentPosition <= 775 && window.matchMedia('(max-width: 1024px)').matches === false) {
+			// Make header link active when section is in viewport for SERVICES section
+			if(currentPosition >= 672 && currentPosition <= 1000 && !window.matchMedia('(max-width: 1024px)').matches) document.querySelector('#header-navbar .main-list').children[0].children[0].classList.add('active');
 
-				document.querySelectorAll('.active').forEach(active => active.classList.remove('active'));
-				document.querySelector('#header-navbar .main-list').children[0].children[0].classList.add('active');
+			else document.querySelector('#header-navbar .main-list').children[0].children[0].classList.remove('active');
 
-			} else document.querySelector('#header-navbar .main-list').children[0].children[0].classList.remove('active');
+			// Make header link active when section is in viewport for SUBSCRIPTION section
+			if(currentPosition >= 1450 && currentPosition <= 1750 && !window.matchMedia('(max-width: 1024px)').matches) document.querySelector('#header-navbar .main-list').children[1].children[0].classList.add('active')
 
-			// Make header link active when section is in viewport for subscription section
-			if(currentPosition >= 1504 && currentPosition <= 1726 && window.matchMedia('(max-width: 1024px)').matches === false) {
-				
-				document.querySelectorAll('.active').forEach(active => active.classList.remove('active'));
-				document.querySelector('#header-navbar .main-list').children[1].children[0].classList.add('active')
-
-			} else document.querySelector('#header-navbar .main-list').children[1].children[0].classList.remove('active');
+			else document.querySelector('#header-navbar .main-list').children[1].children[0].classList.remove('active');
 		}
 		
 		requestAnimationFrame(ui.headerScroll);
 	}
-
-	// Check the page we are on so the header should be always visible
-	headerPageVisible() { if(window.location.pathname !== '/' && !window.location.pathname.includes('index') && document.body.contains(this.header)) this.header.classList.add('header-visible') }
 
 	// Parallax scroll background images
 	parallaxImage(e) {
 		// Get all parallax background images
 		if(e.type === 'scroll' || e.type === 'DOMContentLoaded') {
 
-			if(window.matchMedia('(max-width: 768px)').matches === false && window.matchMedia('(min-width: 812px) and (max-width: 824px)').matches === false) {
+			if(!window.matchMedia('(max-width: 768px)').matches && !window.matchMedia('(min-width: 812px) and (max-width: 824px)').matches) {
 				const backgroundImages = document.querySelectorAll('.parallax-image');
 	
 				backgroundImages.forEach(image => {
@@ -152,7 +148,7 @@ class Ui {
 		// Reset header animation on mobile
 		if(e.type === 'scroll' || e.type === 'DOMContentLoaded') {
 
-			if(window.matchMedia('(min-width: 768px)').matches === false) {
+			if(!window.matchMedia('(min-width: 768px)').matches) {
 	
 				ui.header.classList.remove('header-intro', 'header-scrolled', 'header-fixed');
 	

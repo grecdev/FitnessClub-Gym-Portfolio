@@ -32,9 +32,6 @@ export const globalFunctionality = (function() {
 		}
 
 		function load(e) {
-			
-			// Check the page we are on so the header should be always visible
-			ui.headerPageVisible();
 
 			// Image parallax scrolling effect
 			ui.parallaxImage(e);
