@@ -20,4 +20,4 @@ Website for a fictional gym. For personal portofolio.
 - Vanilla Javascript + Jump.js Library for smooth scroll
 - Semantic HTML5
 
-**Refresh the page after choosing responsive device**
+**Refresh the page and Resize page to 100% after choosing responsive device (Dumb chrome have bugs and can ruin my website review)**
