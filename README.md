@@ -13,7 +13,7 @@ Website for a fictional gym. For personal portofolio.
 
 - Webpack
   - Babel
-  - Html / Javascript / Css minifier
+  - Html / Javascript / Css - minified files
   - Webpack dev server ( for development )
 - Sass
 - Media Queries ( Responsive Design )
