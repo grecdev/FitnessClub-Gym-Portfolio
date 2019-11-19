@@ -55,36 +55,30 @@ class Ui {
 	}
 
 	// Header animation on scroll
-	headerScroll() {
+	headerScroll(e) {
 		// Get the scroll position
 		const currentPosition = Math.floor(window.pageYOffset);
 		
-		// If we scroll show animation for home page
-		if(document.body.id === 'home-page' && !window.matchMedia('(max-width: 767px)').matches) {
-			// Make header visible / hidden
-			if(currentPosition > 1) {
-
-				ui.header.classList.remove('header-intro', 'header-fixed');
-				ui.header.classList.add('header-scrolled');
-
-			} else {
-
-				ui.header.classList.remove('header-scrolled');
-				ui.header.classList.add('header-fixed');
-			}
-
-			if(!window.matchMedia('(max-width: 1024px)').matches) {
-				// Make header link active when section is in viewport for SERVICES section
-				if(currentPosition >= 672 && currentPosition <= 1000) document.querySelector('#header-navbar .main-list').children[0].children[0].classList.add('active');
-				else document.querySelector('#header-navbar .main-list').children[0].children[0].classList.remove('active');
+		if(e.type === 'scroll' || e.type === 'DOMContentLoaded') {
+			// If we scroll show animation for home page
+			if(document.body.id === 'home-page' && !window.matchMedia('(max-width: 767px)').matches) {
+				// Make header visible / hidden
+				if(currentPosition > 1) ui.header.classList.add('header-fixed');
+				else ui.header.classList.remove('header-fixed');
 	
-				// Make header link active when section is in viewport for SUBSCRIPTION section
-				if(currentPosition >= 1450 && currentPosition <= 1750) document.querySelector('#header-navbar .main-list').children[1].children[0].classList.add('active')
-				else document.querySelector('#header-navbar .main-list').children[1].children[0].classList.remove('active');
-			}
-		}
+				if(!window.matchMedia('(max-width: 1024px)').matches) {
+					// Make header link active when section is in viewport for SERVICES section
+					if(currentPosition >= 672 && currentPosition <= 1000) document.querySelector('#header-desktop .main-list').children[0].children[0].classList.add('active');
+					else document.querySelector('#header-desktop .main-list').children[0].children[0].classList.remove('active');
 		
-		requestAnimationFrame(ui.headerScroll);
+					// Make header link active when section is in viewport for SUBSCRIPTION section
+					if(currentPosition >= 1450 && currentPosition <= 1750) document.querySelector('#header-desktop .main-list').children[1].children[0].classList.add('active')
+					else document.querySelector('#header-desktop .main-list').children[1].children[0].classList.remove('active');
+				}
+			}
+			
+			requestAnimationFrame(ui.headerScroll);
+		}
 	}
 
 	// Parallax scroll background images
@@ -110,7 +104,7 @@ class Ui {
 	}
 
 	// Reset scroll btn
-	resetScroll(e) {
+	resetScrollBtn(e) {
 		if(e.type === 'click' && e.currentTarget === ui.resetScroll_btn && e.currentTarget.dataset.eventToggle === 'true') {
 
 			const scrollSpeed = 650;
@@ -121,6 +115,23 @@ class Ui {
 			e.currentTarget.setAttribute('data-event-toggle', 'false');
 			setTimeout(() => this.resetScroll_btn.setAttribute('data-event-toggle', 'true'), scrollSpeed);
 		}
+
+		if(e.type === 'scroll') {
+			const currentPosition = Math.floor(window.pageYOffset);
+
+			let enablePosition;
+
+			if(document.body.id === 'home-page') enablePosition = 950;
+			else if(location.pathname.includes('services')) enablePosition = 1100;
+
+			// For pages that have the reset scroll button
+			if(document.body.contains(this.resetScroll_btn)) {
+				if(currentPosition >= enablePosition) this.resetScroll_btn.classList.add('reset-btn-visible');
+				else this.resetScroll_btn.classList.remove('reset-btn-visible');
+			}
+	
+			requestAnimationFrame(ui.resetScrollBtn);
+		}
 	}
 
 	// Show / Hide mobile header menu
@@ -128,31 +139,6 @@ class Ui {
 		// Click on icon or parent element
 		if(e.target.parentElement === this.showMobile_menu || e.target === this.showMobile_menu) this.mobile_menu.classList.add('mobile-header-menu-visible');
 		else if(e.target.parentElement === this.hideMobile_menu || e.target === this.hideMobile_menu) this.mobile_menu.classList.remove('mobile-header-menu-visible');
-	}
-
-	scrollFunctionality(e) {
-
-		const currentPosition = Math.floor(window.pageYOffset);
-
-		// Reset header animation on mobile devices
-		if(e.type === 'DOMContentLoaded' || e.type === "scroll") {
-			if(window.matchMedia('(max-width: 768px)').matches) {
-
-				ui.header.classList.remove('header-intro', 'header-scrolled', 'header-fixed');
-
-				ui.header.classList.add('mobile-header-visible');
-			}
-		}
-
-		if(e.type === 'scroll') {
-			// For pages that have the reset scroll button
-			if(document.body.contains(this.resetScroll_btn)) {
-				if(currentPosition >= 1172) this.resetScroll_btn.classList.add('reset-btn-visible')
-				else this.resetScroll_btn.classList.remove('reset-btn-visible')
-			}
-		}
-
-		requestAnimationFrame(ui.scrollFunctionality);
 	}
 }
 

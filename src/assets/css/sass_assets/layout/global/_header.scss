@@ -8,18 +8,17 @@
 	position: fixed;
 	top: 0;
 	left: 0;
+	transform: translateY(20px);
 	min-width: 100%;
-	transform: translateY(-20px);
-	opacity: 0;
-	transition: all 450ms ease-in-out;
+	transition: background-color 600ms ease-in-out, transform 300ms ease-in-out;
 
 	/** Logo **/
 	.logo { @include font(1.5rem, $white, 500) }
 
 	/** Navigation Links **/
-	#header-navbar .main-list > li > a:hover, .active, #header-navbar .main-list > li:hover > a { color: $yellow-pale }
+	#header-desktop .main-list > li > a:hover, .active, #header-desktop .main-list > li:hover > a { color: $yellow-pale }
 
-	#header-navbar {
+	#header-desktop {
 
 		ul { @include flex(row, center, center) }
 
@@ -32,7 +31,7 @@
 			position: relative;
 		}
 
-		/* Animation for active link / page */
+		/* Animation for active link / section */
 		li a::after {
 			content: '';
 			position: absolute;
@@ -48,74 +47,15 @@
 		li a.active::after {
 			content: '';
 			transform: translateX(-50%) scaleX(1);
-		}
+		}		
 	}
+
+	#header-mobile { display: none }
 }
 
-/** Header animation **/
-
-.header-intro { animation: headerIntro 1s ease-in-out forwards 1.4s }
-.header-scrolled { animation: headerScrolled 500ms ease-in-out forwards }
-.header-fixed { animation: headerFixed 500ms ease-in-out forwards }
-
-.header-visible {
-	transform: translate(0) !important;
-	opacity: 1 !important;
+header#main-header.header-fixed {
+	transform: translateY(0);
 	background: darken($green-eton, 15%);
-}
-
-@keyframes headerIntro {
-	from {
-		transform: translateY(-20px);
-		opacity: 0;
-	}
-	
-	to {
-		transform: translateY(15px);
-		opacity: 1;
-	}
-}
-
-@keyframes headerScrolled {
-	from {
-		background: transparent;
-		transform: translateY(15px);
-		opacity: 1;
-	}
-
-	to {
-		background: darken($green-eton, 15%);
-		transform: translateY(0);
-		opacity: 1;
-	}
-}
-
-@keyframes headerFixed {
-	from {
-		background: darken($green-eton, 15%);
-		transform: translateY(0);
-		opacity: 1;
-	}
-
-	to {
-		background: transparent;
-		transform: translateY(15px);
-		opacity: 1;
-	}
-}
-
-#header-mobile { display: none }
-
-.mobile-header-visible {
-	transform: translateY(0) !important;
-	opacity: 1 !important;
-	background: darken($green-eton, 15%) !important;
-}
-
-.mobile-header-menu-visible {
-	transform: translateY(0) !important;
-	opacity: 1 !important;
-	z-index: 3 !important;
 }
 
 /*** Responsive Header ***/
@@ -128,7 +68,7 @@
 
 	/*** INDEX PAGE ***/
 	/** Header **/
-	#header-navbar { display: none }
+	#header-desktop { display: none }
 
 	#main-header {
 		opacity: 1;
@@ -203,7 +143,7 @@
 
 	.header-intro { animation: none }
 
-	#header-navbar { display: none }
+	#header-desktop { display: none }
 
 	#main-header .logo { font-size: 1.2rem }
 

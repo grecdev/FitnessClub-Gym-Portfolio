@@ -22,11 +22,8 @@ export const globalFunctionality = (function() {
 			// Image parallax scrolling effect
 			ui.parallaxImage(e);
 
-			// Reset scroll btn
-			ui.resetScroll(e);
+			ui.resetScrollBtn(e);
 
-			ui.scrollFunctionality(e);
-			
 			e.stopPropagation();
 		}
 
@@ -34,8 +31,8 @@ export const globalFunctionality = (function() {
 			// Image parallax scrolling effect
 			ui.parallaxImage(e);
 
-			ui.scrollFunctionality(e);
-
+			ui.headerScroll(e);
+			
 			e.stopPropagation();
 		}
 
@@ -43,7 +40,7 @@ export const globalFunctionality = (function() {
 		function resetScroll(e) {
 
 			// Reset scroll btn
-			ui.resetScroll(e);
+			ui.resetScrollBtn(e);
 			
 			e.stopPropagation();
 		}
