@@ -286,7 +286,7 @@ i { margin-left: .5rem; }
 }
 
 /** Animation for reset btn **/
-.reset-btn-visible {
-	transform: scale(1) !important;
-	opacity: 1 !important;
+#reset-btn.reset-btn-visible {
+	transform: scale(1);
+	opacity: 1;
 }

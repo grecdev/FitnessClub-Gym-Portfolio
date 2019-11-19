@@ -17,6 +17,7 @@ export const headerFunctionality = (function() {
 			// Smooth navigation
 			ui.smoothScroll(e);
 
+			// Show / Hide mobile header
 			ui.mobileHeader(e);
 			
 			e.stopPropagation();

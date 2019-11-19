@@ -6,7 +6,6 @@ import { ui } from "../ui.js";
 export const servicesPage = (() => {
 
 	function init() {
-
 		// Section smooth scroll navigation
 		// Go downwards
 		ui.downArrow.forEach(arrow => {

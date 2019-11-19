@@ -25,19 +25,16 @@ export const globalFunctionality = (function() {
 			// Reset scroll btn
 			ui.resetScroll(e);
 
-			// Reset header animation
-			ui.mobileHeader(e);
+			ui.scrollFunctionality(e);
 			
 			e.stopPropagation();
 		}
 
 		function load(e) {
-
 			// Image parallax scrolling effect
 			ui.parallaxImage(e);
 
-			// Reset header animation
-			ui.mobileHeader(e);
+			ui.scrollFunctionality(e);
 
 			e.stopPropagation();
 		}

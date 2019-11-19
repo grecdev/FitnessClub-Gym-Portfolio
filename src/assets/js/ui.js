@@ -17,80 +17,71 @@ class Ui {
 
 	// Smooth scroll click
 	smoothScroll(e) {
-		if(e.type === 'click') {
-			// For home page
-			if(e.target.getAttribute('href') === '#services-section') {
-				// Close mobile header menu
-				this.mobile_menu.classList.remove('mobile-header-menu-visible')
-				jump('#services-section', { duration: 600, offset: -50 });
+		// For home page
+		if(document.body.id === 'home-page') {
+			// Section where we want to use smooth scroll
+			const section = e.target.dataset.linkScroll;
 
-				// Prevent default => so we don't overwrite header animations
-				e.preventDefault();
+			const scrollSpeed = 1000;
+
+			// Event toggle state
+			if(e.target.dataset.eventToggle === 'true') {
+				jump(`#${section}`, {duration: scrollSpeed, offset: -50});
+
+				// Toggle event state for all links (prevent multiple clicks trigger)
+				document.querySelectorAll('[data-link-scroll]').forEach(link => link.setAttribute('data-event-toggle', 'false'));
+				setTimeout(() => document.querySelectorAll('[data-link-scroll]').forEach(link => link.setAttribute('data-event-toggle', 'true')), scrollSpeed);
 			}
+		}
 
-			else if(e.target.getAttribute('href') === '#subscription') {
-				// Close mobile header menu
-				this.mobile_menu.classList.remove('mobile-header-menu-visible')
-				jump('#subscription', { duration: 600,  offset: -50});
+		// For services page to navigate trough sections
+		if(location.pathname.includes('services')) {
+			// Get the section
+			let section = e.currentTarget.dataset.navigateSection;
 
-				// Prevent default => so we don't overwrite header animations
-				e.preventDefault();
+			const scrollSpeed = 1800;
+
+			if(e.currentTarget.dataset.eventToggle === 'true') {
+				// Becuase body doesn't have hashtag
+				if(section !== 'body') section = '#' + section;
+
+				jump(section, { duration: scrollSpeed })
+
+				// Toggle event state for all links (prevent multiple clicks trigger)
+				document.querySelectorAll('[data-event-toggle]').forEach(link => link.setAttribute('data-event-toggle', 'false'));
+				setTimeout(() => document.querySelectorAll('[data-event-toggle]').forEach(link => link.setAttribute('data-event-toggle', 'true')), scrollSpeed);
 			}
-
-			else if(e.target.parentElement.getAttribute('href') === '#' || e.target.parentElement.parentElement.getAttribute('href') === '#') {
-				jump('body', { duration: 600});
-				
-				// Prevent default => so we don't overwrite header animations
-				e.preventDefault();
-			}
-
-			// For services page to navigate trough sections
-			// Go downards
-			if(e.currentTarget.getAttribute('href') === '#pool-area-down') { jump('#pool-area', { duration: 1800 }) }
-			else if(e.currentTarget.getAttribute('href') === '#equipment-area-down') { jump('#equipment-area', { duration: 1800 }) }
-			else if(e.currentTarget.getAttribute('href') === '#boxing-area-down') { jump('#boxing-area', { duration: 1800 }) }
-			else if(e.currentTarget.getAttribute('href') === '#trainer-area-down') { jump('#trainer-area', { duration: 1800 }) }
-			else if(e.currentTarget.getAttribute('href') === '#dancing-area-down') { jump('#dancing-area', { duration: 1800 }) }
-
-			// Go upwards
-			if(e.currentTarget.getAttribute('href') === '#trainer-area-up') { jump('#trainer-area', { duration: 1800 }) }
-			else if(e.currentTarget.getAttribute('href') === '#boxing-area-up') { jump('#boxing-area', { duration: 1800 }) }
-			else if(e.currentTarget.getAttribute('href') === '#equipment-area-up') { jump('#equipment-area', { duration: 1800 }) }
-			else if(e.currentTarget.getAttribute('href') === '#pool-area-up') { jump('#pool-area', { duration: 1800 }) }
-			else if(e.currentTarget.getAttribute('href') === '#services-showcase-up') { jump('body', { duration: 1800 }) }
 		}
 	}
 
 	// Header animation on scroll
 	headerScroll() {
-
 		// Get the scroll position
-		const currentPosition = Math.floor(pageYOffset);
+		const currentPosition = Math.floor(window.pageYOffset);
 		
 		// If we scroll show animation for home page
-		if(window.location.pathname === '/' || window.location.pathname.includes('index')) {
+		if(document.body.id === 'home-page' && !window.matchMedia('(max-width: 767px)').matches) {
 			// Make header visible / hidden
-			if(currentPosition > 2 && !window.matchMedia('(max-width: 767px)').matches) {
+			if(currentPosition > 1) {
 
 				ui.header.classList.remove('header-intro', 'header-fixed');
 				ui.header.classList.add('header-scrolled');
 
-			} else if(currentPosition < 1 && !window.matchMedia('(max-width: 767px)').matches){
+			} else {
 
 				ui.header.classList.remove('header-scrolled');
 				ui.header.classList.add('header-fixed');
-
 			}
 
-			// Make header link active when section is in viewport for SERVICES section
-			if(currentPosition >= 672 && currentPosition <= 1000 && !window.matchMedia('(max-width: 1024px)').matches) document.querySelector('#header-navbar .main-list').children[0].children[0].classList.add('active');
-
-			else document.querySelector('#header-navbar .main-list').children[0].children[0].classList.remove('active');
-
-			// Make header link active when section is in viewport for SUBSCRIPTION section
-			if(currentPosition >= 1450 && currentPosition <= 1750 && !window.matchMedia('(max-width: 1024px)').matches) document.querySelector('#header-navbar .main-list').children[1].children[0].classList.add('active')
-
-			else document.querySelector('#header-navbar .main-list').children[1].children[0].classList.remove('active');
+			if(!window.matchMedia('(max-width: 1024px)').matches) {
+				// Make header link active when section is in viewport for SERVICES section
+				if(currentPosition >= 672 && currentPosition <= 1000) document.querySelector('#header-navbar .main-list').children[0].children[0].classList.add('active');
+				else document.querySelector('#header-navbar .main-list').children[0].children[0].classList.remove('active');
+	
+				// Make header link active when section is in viewport for SUBSCRIPTION section
+				if(currentPosition >= 1450 && currentPosition <= 1750) document.querySelector('#header-navbar .main-list').children[1].children[0].classList.add('active')
+				else document.querySelector('#header-navbar .main-list').children[1].children[0].classList.remove('active');
+			}
 		}
 		
 		requestAnimationFrame(ui.headerScroll);
@@ -99,6 +90,7 @@ class Ui {
 	// Parallax scroll background images
 	parallaxImage(e) {
 		// Get all parallax background images
+		// DOMContentLoaded => so the images are in the position, if we disable the DOMContentLoaded event the images will be in the position only when we scroll
 		if(e.type === 'scroll' || e.type === 'DOMContentLoaded') {
 
 			if(!window.matchMedia('(max-width: 768px)').matches && !window.matchMedia('(min-width: 812px) and (max-width: 824px)').matches) {
@@ -119,46 +111,48 @@ class Ui {
 
 	// Reset scroll btn
 	resetScroll(e) {
-		if(e.type === 'scroll') {
-			// Check for pages that have the reset btn
-			if(document.body.contains(this.resetScroll_btn)) {
-				
-				const currentPosition = Math.floor(window.pageYOffset);
-		
-				if(currentPosition >= 1172) this.resetScroll_btn.classList.add('reset-btn-visible')
-				else this.resetScroll_btn.classList.remove('reset-btn-visible')
-		
-				requestAnimationFrame(ui.resetScroll);
-			}
+		if(e.type === 'click' && e.currentTarget === ui.resetScroll_btn && e.currentTarget.dataset.eventToggle === 'true') {
 
+			const scrollSpeed = 650;
+
+			jump('body', { duration: scrollSpeed});
+
+			// Event state, i use this because i don't want to trigger the animation on each click
+			e.currentTarget.setAttribute('data-event-toggle', 'false');
+			setTimeout(() => this.resetScroll_btn.setAttribute('data-event-toggle', 'true'), scrollSpeed);
 		}
-
-		else if(e.type === 'click' && e.currentTarget === ui.resetScroll_btn) jump('body', { duration: 600})
 	}
 
 	// Show / Hide mobile header menu
 	mobileHeader(e) {
+		// Click on icon or parent element
+		if(e.target.parentElement === this.showMobile_menu || e.target === this.showMobile_menu) this.mobile_menu.classList.add('mobile-header-menu-visible');
+		else if(e.target.parentElement === this.hideMobile_menu || e.target === this.hideMobile_menu) this.mobile_menu.classList.remove('mobile-header-menu-visible');
+	}
 
-		if(e.type === 'click') {
-			// IF we click on icon or button itself
-			if(e.target.parentElement === this.showMobile_menu || e.target === this.showMobile_menu) this.mobile_menu.classList.add('mobile-header-menu-visible');
-			else if(e.target.parentElement === this.hideMobile_menu || e.target === this.hideMobile_menu) this.mobile_menu.classList.remove('mobile-header-menu-visible');
-		}
+	scrollFunctionality(e) {
 
-		// Reset header animation on mobile
-		if(e.type === 'scroll' || e.type === 'DOMContentLoaded') {
+		const currentPosition = Math.floor(window.pageYOffset);
 
-			if(!window.matchMedia('(min-width: 768px)').matches) {
-	
+		// Reset header animation on mobile devices
+		if(e.type === 'DOMContentLoaded' || e.type === "scroll") {
+			if(window.matchMedia('(max-width: 768px)').matches) {
+
 				ui.header.classList.remove('header-intro', 'header-scrolled', 'header-fixed');
-	
+
 				ui.header.classList.add('mobile-header-visible');
 			}
-			
 		}
 
-		requestAnimationFrame(ui.mobileHeader);
+		if(e.type === 'scroll') {
+			// For pages that have the reset scroll button
+			if(document.body.contains(this.resetScroll_btn)) {
+				if(currentPosition >= 1172) this.resetScroll_btn.classList.add('reset-btn-visible')
+				else this.resetScroll_btn.classList.remove('reset-btn-visible')
+			}
+		}
 
+		requestAnimationFrame(ui.scrollFunctionality);
 	}
 }
 

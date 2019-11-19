@@ -14,19 +14,17 @@
 @import './sass_assets/layout/index/how_to_join';
 @import './sass_assets/layout/index/subscription';
 @import './sass_assets/layout/index/newsletter';
+@import './sass_assets/layout/index/mobile_index';
 
 // Services Page
 @import './sass_assets/layout/services/services_showcase.scss';
 @import './sass_assets/layout/services/services_sections.scss';
+@import './sass_assets/layout/services/mobile_services';
 
 // Contact Page
 @import './sass_assets/layout/contact/contact_form';
+@import './sass_assets/layout/contact/mobile_contact';
 
 // Login Page
 @import './sass_assets/layout/login/_login_page';
-
-// Responsive
-@import './sass_assets/layout/index/mobile_index';
-@import './sass_assets/layout/services/mobile_services';
-@import './sass_assets/layout/contact/mobile_contact';
 @import './sass_assets/layout/login/mobile_login';
