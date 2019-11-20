@@ -5,7 +5,7 @@
 	position: relative;
 
 	.subscription-container {
-		@include flex(row, space-between, center);
+		@include flex(row, space-between, stretch);
 		padding: 1rem 1rem;
 	}
 

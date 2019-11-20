@@ -8,12 +8,17 @@
 	position: fixed;
 	top: 0;
 	left: 0;
-	transform: translateY(20px);
 	min-width: 100%;
-	transition: background-color 600ms ease-in-out, transform 300ms ease-in-out;
+	transform: translateY(-20px);
+	opacity: 0;
+	transition: none;
 
 	/** Logo **/
-	.logo { @include font(1.5rem, $white, 500) }
+	.logo {
+		@include font(1.5rem, $white, 500);
+		position: relative;
+		z-index: 1;
+	}
 
 	/** Navigation Links **/
 	#header-desktop .main-list > li > a:hover, .active, #header-desktop .main-list > li:hover > a { color: $yellow-pale }
@@ -53,6 +58,14 @@
 	#header-mobile { display: none }
 }
 
+header#main-header.header-intro,
+header#main-header.header-fixed {
+	transition: all 600ms ease-in-out;
+	opacity: 1;
+}
+
+header#main-header.header-intro { transform: translateY(20px) }
+
 header#main-header.header-fixed {
 	transform: translateY(0);
 	background: darken($green-eton, 15%);
@@ -66,43 +79,34 @@ header#main-header.header-fixed {
 
 @media (min-width: 481px) and (max-width: 767px) {
 
-	/*** INDEX PAGE ***/
-	/** Header **/
 	#header-desktop { display: none }
-
-	#main-header {
-		opacity: 1;
-		transform: translateY(0);
-	}
-
-	.header-intro { animation: none }
-	.header-scrolled { animation: none }
-	.header-fixed { animation: none }
 
 	#main-header .logo { font-size: 1.2rem }
 
 	/* Mobile header */
-	#header-mobile {
-		display: block;
+	header#main-header #header-mobile {
 		margin-right: 1rem;
 		position: absolute;
 		width: 100%;
+		height: 100%;
 		top: 0;
 		left: 0;
 		@include flex(column, center, center);
 
 		#show-mobile-menu, #hide-mobile-menu {
 			position: absolute;
-			right: 10px;
-			top: -2px;
-			z-index: 2;
-			width: 10%;
-			height: 45px;
+			right: 0;
+			top: 0;
+			width: 15%;
 			@include flex(column, center, center);
 			text-align: center;
 
 			i { margin: 0 }
 		}
+
+		#show-mobile-menu { height: 100% }
+
+		#hide-mobile-menu { height: 40% }
 
 		.bar-menu-container {
 			position: absolute;
@@ -110,18 +114,18 @@ header#main-header.header-fixed {
 			left: 0;
 			background: $green-eton;
 			width: 100vw;
-			height: 60vh;
-			z-index: -1;
+			height: 30vh;
 			@include flex(column, center, center);
-			transform: translateY(-150px);
+			transform: translateY(-120px);
+			visibility: hidden;
 			opacity: 0;
-			transition: all 500ms ease-in-out;
+			transition: all 300ms ease-in-out;
 
 			ul {
-				font-size: .9rem;
-				text-align: center;
+				font-size: .85rem;
+				@include flex(row, space-between, center);
 
-				li { margin: 1rem 0 }
+				li { margin: 0 1rem }
 			}
 		}
 	}
@@ -133,42 +137,35 @@ header#main-header.header-fixed {
 */
 
 @media (min-width: 320px) and (max-width: 480px) {
-	
-	/*** INDEX PAGE ***/
-	/** Header **/
-	#main-header {
-		opacity: 1;
-		transform: translateY(0);
-	}
-
-	.header-intro { animation: none }
 
 	#header-desktop { display: none }
 
-	#main-header .logo { font-size: 1.2rem }
+	#main-header .logo { font-size: 1rem }
 
 	/* Mobile header */
-	#header-mobile {
-		display: block;
+	header#main-header #header-mobile {
 		margin-right: 1rem;
 		position: absolute;
 		width: 100%;
+		height: 100%;
 		top: 0;
 		left: 0;
 		@include flex(column, center, center);
 
 		#show-mobile-menu, #hide-mobile-menu {
 			position: absolute;
-			right: 10px;
-			top: -2px;
-			z-index: 2;
-			width: 10%;
-			height: 45px;
+			right: 0;
+			top: 0;
+			width: 15%;
 			@include flex(column, center, center);
 			text-align: center;
 
 			i { margin: 0 }
 		}
+
+		#show-mobile-menu { height: 100% }
+
+		#hide-mobile-menu { height: 19.5% }
 
 		.bar-menu-container {
 			position: absolute;
@@ -177,11 +174,11 @@ header#main-header.header-fixed {
 			background: $green-eton;
 			width: 100vw;
 			height: 30vh;
-			z-index: -1;
 			@include flex(column, center, center);
-			transform: translateY(-150px);
+			transform: translateY(-120px);
+			visibility: hidden;
 			opacity: 0;
-			transition: all 500ms ease-in-out;
+			transition: all 300ms ease-in-out;
 
 			ul {
 				font-size: .85rem;
@@ -191,4 +188,19 @@ header#main-header.header-fixed {
 			}
 		}
 	}
+}
+
+header#main-header #header-mobile .bar-menu-container.test {
+	transform: translateY(0);
+	visibility: visible;
+	opacity: 1;
+	transition: all 300ms ease-in-out;
+}
+
+/*** Iphone SE - portrait ***/
+@media screen and (max-width: 320px) {
+
+	header#main-header #header-mobile .bar-menu-container ul li { margin: .8rem 0 }
+	header#main-header #header-mobile .bar-menu-container { height: 40vh }
+	
 }

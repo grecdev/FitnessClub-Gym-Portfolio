@@ -13,6 +13,7 @@ class Ui {
 		this.hideMobile_menu = document.getElementById('hide-mobile-menu');
 		// Menus
 		this.mobile_menu = document.querySelector('.bar-menu-container');
+		this.mobileDevice = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i;
 	}
 
 	// Smooth scroll click
@@ -55,20 +56,23 @@ class Ui {
 	}
 
 	// Header animation on scroll
-	headerScroll(e) {
+	headerAnimation(e) {
 		// Get the scroll position
 		const currentPosition = Math.floor(window.pageYOffset);
-		
-		if(e.type === 'scroll' || e.type === 'DOMContentLoaded') {
+
+		if((e.type === 'scroll' || e.type === 'DOMContentLoaded') && !this.mobileDevice.test(navigator.userAgent)) {
+
 			// If we scroll show animation for home page
-			if(document.body.id === 'home-page' && !window.matchMedia('(max-width: 767px)').matches) {
+			if(document.body.id === 'home-page' && !this.mobileDevice.test(navigator.userAgent)) {
+
 				// Make header visible / hidden
 				if(currentPosition > 1) ui.header.classList.add('header-fixed');
 				else ui.header.classList.remove('header-fixed');
 	
-				if(!window.matchMedia('(max-width: 1024px)').matches) {
+				if(!this.mobileDevice.test(navigator.userAgent)) {
+
 					// Make header link active when section is in viewport for SERVICES section
-					if(currentPosition >= 672 && currentPosition <= 1000) document.querySelector('#header-desktop .main-list').children[0].children[0].classList.add('active');
+					if(currentPosition >= 650 && currentPosition <= 1000) document.querySelector('#header-desktop .main-list').children[0].children[0].classList.add('active');
 					else document.querySelector('#header-desktop .main-list').children[0].children[0].classList.remove('active');
 		
 					// Make header link active when section is in viewport for SUBSCRIPTION section
@@ -77,8 +81,18 @@ class Ui {
 				}
 			}
 			
-			requestAnimationFrame(ui.headerScroll);
+			requestAnimationFrame(ui.headerAnimation);
 		}
+
+		if(e.type === 'DOMContentLoaded') {
+
+			// On Desktop devices and home page enable header intro animation
+			if(!this.mobileDevice.test(navigator.userAgent) && document.body.id === 'home-page') setTimeout(() => this.header.classList.add('header-intro'), 1000);
+
+			// On mobile devices disable header intro animation
+			if(this.mobileDevice.test(navigator.userAgent)) this.header.classList.add('header-fixed');
+		}
+
 	}
 
 	// Parallax scroll background images
@@ -87,7 +101,7 @@ class Ui {
 		// DOMContentLoaded => so the images are in the position, if we disable the DOMContentLoaded event the images will be in the position only when we scroll
 		if(e.type === 'scroll' || e.type === 'DOMContentLoaded') {
 
-			if(!window.matchMedia('(max-width: 768px)').matches && !window.matchMedia('(min-width: 812px) and (max-width: 824px)').matches) {
+			if(this.mobileDevice.test(navigator.userAgent)) {
 				const backgroundImages = document.querySelectorAll('.parallax-image');
 	
 				backgroundImages.forEach(image => {
@@ -137,8 +151,14 @@ class Ui {
 	// Show / Hide mobile header menu
 	mobileHeader(e) {
 		// Click on icon or parent element
-		if(e.target.parentElement === this.showMobile_menu || e.target === this.showMobile_menu) this.mobile_menu.classList.add('mobile-header-menu-visible');
-		else if(e.target.parentElement === this.hideMobile_menu || e.target === this.hideMobile_menu) this.mobile_menu.classList.remove('mobile-header-menu-visible');
+		if(e.target.parentElement === this.showMobile_menu || e.target === this.showMobile_menu) this.mobile_menu.classList.add('test');
+		else if(e.target.parentElement === this.hideMobile_menu || e.target === this.hideMobile_menu) this.mobile_menu.classList.remove('test');
+	}
+
+	showcaseAnimation(e) {
+
+		console.log('showcaseAnimation');
+
 	}
 }
 

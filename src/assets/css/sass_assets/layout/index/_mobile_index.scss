@@ -9,7 +9,6 @@
 	#subscription {
 
 		.subscription-box {
-
 			width: 32%;
 
 			.subscription-header {
@@ -44,7 +43,6 @@
 	
 	/** Services section **/
 	#services-section {
-
 		padding: 3rem 3rem 5rem;
 
 		.join-container { @include flex(column, center, center) }
@@ -62,23 +60,13 @@
 
 	/** How to join section **/
 	#how-to-join {
-		
+
+		h2 { margin-bottom: 3rem }
+
 		.join-step-container {
-			@include grid(repeat(4, 1fr), 2rem);
-
-			.join-step-box { width: 100% }
-
+			padding: 0;
+	
 			.join-step-box::before { font-size: 1rem }
-
-			.join-step-box:first-child { grid-column: 1 / 3 }
-
-			.join-step-box:nth-child(2) { grid-column: 3 / -1 }
-
-			.join-step-box:last-child {
-				grid-column: 2 / -2;
-				text-align: center;
-				min-height: 100px;
-			}
 		}
 	}
 
@@ -268,7 +256,7 @@
 	#how-to-join {
 
 		.join-step-container {
-			@include flex(column, center, center);	
+			@include flex(column, stretch, center);	
 
 			.join-step-box {
 				width: 100%;

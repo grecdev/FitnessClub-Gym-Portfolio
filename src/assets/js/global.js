@@ -17,7 +17,7 @@ export const globalFunctionality = (function() {
 		// Function helpers
 		function scroll(e) {
 			// Header animation on scroll
-			ui.headerScroll(e);
+			ui.headerAnimation(e);
 
 			// Image parallax scrolling effect
 			ui.parallaxImage(e);
@@ -31,7 +31,9 @@ export const globalFunctionality = (function() {
 			// Image parallax scrolling effect
 			ui.parallaxImage(e);
 
-			ui.headerScroll(e);
+			ui.headerAnimation(e);
+
+			ui.showcaseAnimation(e);
 			
 			e.stopPropagation();
 		}
