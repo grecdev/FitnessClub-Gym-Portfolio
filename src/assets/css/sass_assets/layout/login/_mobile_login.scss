@@ -1,3 +1,8 @@
+/* Ipad PRO - Landscape */
+@media only screen and (min-width: 1024px) and (max-height: 1366px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 1.5) {
+	.login-page-padding { padding: 0 }
+}
+
 /* 
   ##Device = Laptops, Desktops
   ##Screen = B/w 1025px to 1280px
@@ -14,15 +19,20 @@
 */
 @media (min-width: 768px) and (max-width: 1024px) {
   
+  .login-page-padding { padding: 0 }
+  
   #login-container {
 		@include flex(column, center, center);
 
 		.login-showcase { display: none }
 		
 		.login-form {
-			width: 65%;
+			width: 90%;
 
-			h2 { margin-bottom: 1rem }
+			h2 {
+				margin-bottom: 1rem;
+				font-size: 1.3rem;
+			}
 			
 			form {
 				justify-content: space-between;
@@ -31,24 +41,24 @@
 			}
 
 			.facebook-login {
-				font-size: 1.5rem;
-				padding: .85rem;
+				font-size: 1rem;
+				padding: .7rem;
 
 				i { font-size: inherit }
 			}
 
 			.form-box {
 
-				&:nth-child(2) p { font-size: 1.3rem }
+				&:nth-child(2) p { font-size: .9rem }
 
-				input, ::placeholder { font-size: 1.3rem }
+				input, ::placeholder { font-size: 1rem }
 
-				input { padding: .5rem }
+				input { padding: .3rem }
 
-				button { font-size: 1.15rem }
+				button { font-size: .95rem }
 			}
 			
-			p { font-size: 1rem }
+			p { font-size: .95rem }
 		}
 	}
 }
@@ -59,60 +69,8 @@
 */
 
 @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
-  
-	#login-container .login-form .facebook-login { font-size: .75rem }
-  
-}
 
-/*** Custom Iphone X / Pixel 2XL - landscape ***/
-@media (min-width: 812px) and (max-width: 824px) and (orientation: landscape) {
-  
-	// #login-container {
-	// 	@include flex(column, center, center);
-
-	// 	.login-showcase { display: none }
-		
-	// 	.login-form {
-	// 		width: 65%;
-
-	// 		h2 { margin-bottom: 1rem }
-			
-	// 		form {
-	// 			justify-content: space-between;
-	// 			width: 100%;
-	// 			padding: 1rem;
-	// 		}
-
-	// 		.facebook-login {
-	// 			font-size: 1.5rem;
-	// 			padding: .85rem;
-
-	// 			i { font-size: inherit }
-	// 		}
-
-	// 		.form-box {
-
-	// 			&:nth-child(2) p { font-size: 1.3rem }
-
-	// 			input, ::placeholder { font-size: 1.3rem }
-
-	// 			input { padding: .5rem }
-
-	// 			button { font-size: 1.15rem }
-	// 		}
-			
-	// 		p { font-size: 1rem }
-	// 	}
-
-	// }
-
-}
-
-/* 
-  ##Device = Low Resolution Tablets, Mobiles (Landscape)
-  ##Screen = B/w 481px to 767px
-*/
-@media (min-width: 481px) and (max-width: 767px) {
+	.login-page-padding { padding: 0 }
   
   #login-container {
 		@include flex(column, center, center);
@@ -120,9 +78,12 @@
 		.login-showcase { display: none }
 		
 		.login-form {
-			width: 65%;
+			width: 90%;
 
-			h2 { margin-bottom: 1rem }
+			h2 {
+				margin-bottom: 1rem;
+				font-size: 1.3rem;
+			}
 			
 			form {
 				justify-content: space-between;
@@ -131,24 +92,123 @@
 			}
 
 			.facebook-login {
-				font-size: 1.5rem;
-				padding: .85rem;
+				font-size: 1rem;
+				padding: .7rem;
 
 				i { font-size: inherit }
 			}
 
 			.form-box {
 
-				&:nth-child(2) p { font-size: 1.3rem }
+				&:nth-child(2) p { font-size: .9rem }
 
-				input, ::placeholder { font-size: 1.3rem }
+				input, ::placeholder { font-size: 1rem }
 
-				input { padding: .5rem }
+				input { padding: .3rem }
 
-				button { font-size: 1.15rem }
+				button { font-size: .95rem }
 			}
 			
-			p { font-size: 1rem }
+			p { font-size: .95rem }
+		}
+	}
+  
+}
+
+/*** Custom Iphone X / Pixel 2XL - landscape ***/
+@media (min-width: 812px) and (max-width: 824px) and (orientation: landscape) {
+  
+	.login-page-padding { padding: 5rem 0 }
+  
+  #login-container {
+		@include flex(column, center, center);
+
+		.login-showcase { display: none }
+		
+		.login-form {
+			width: 90%;
+
+			h2 {
+				margin-bottom: 1rem;
+				font-size: 1.3rem;
+			}
+			
+			form {
+				justify-content: space-between;
+				width: 100%;
+				padding: 1rem;
+			}
+
+			.facebook-login {
+				font-size: 1rem;
+				padding: .7rem;
+
+				i { font-size: inherit }
+			}
+
+			.form-box {
+
+				&:nth-child(2) p { font-size: .9rem }
+
+				input, ::placeholder { font-size: 1rem }
+
+				input { padding: .3rem }
+
+				button { font-size: .95rem }
+			}
+			
+			p { font-size: .95rem }
+		}
+	}
+
+}
+
+/* 
+  ##Device = Low Resolution Tablets, Mobiles (Landscape)
+  ##Screen = B/w 481px to 767px
+*/
+@media (min-width: 481px) and (max-width: 767px) {
+
+	.login-page-padding { padding: 5rem 0 }
+  
+  #login-container {
+		@include flex(column, center, center);
+
+		.login-showcase { display: none }
+		
+		.login-form {
+			width: 90%;
+
+			h2 {
+				margin-bottom: 1rem;
+				font-size: 1.3rem;
+			}
+			
+			form {
+				justify-content: space-between;
+				width: 100%;
+				padding: 1rem;
+			}
+
+			.facebook-login {
+				font-size: 1rem;
+				padding: .7rem;
+
+				i { font-size: inherit }
+			}
+
+			.form-box {
+
+				&:nth-child(2) p { font-size: .9rem }
+
+				input, ::placeholder { font-size: 1rem }
+
+				input { padding: .3rem }
+
+				button { font-size: .95rem }
+			}
+			
+			p { font-size: .95rem }
 		}
 	}
 }
@@ -158,6 +218,8 @@
   ##Screen = B/w 320px to 479px
 */
 @media (min-width: 320px) and (max-width: 480px) {
+
+	.login-page-padding { padding: 0 }
   
   #login-container {
 		@include flex(column, center, center);
