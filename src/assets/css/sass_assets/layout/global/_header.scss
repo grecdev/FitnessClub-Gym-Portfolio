@@ -83,6 +83,8 @@ header#main-header.header-fixed {
 
 	#main-header .logo { font-size: 1.2rem }
 
+	header#main-header.header-fixed { transition: none }
+
 	/* Mobile header */
 	header#main-header #header-mobile {
 		margin-right: 1rem;
@@ -141,6 +143,8 @@ header#main-header.header-fixed {
 	#header-desktop { display: none }
 
 	#main-header .logo { font-size: 1rem }
+
+	header#main-header.header-fixed { transition: none }
 
 	/* Mobile header */
 	header#main-header #header-mobile {

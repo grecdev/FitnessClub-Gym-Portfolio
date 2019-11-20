@@ -22,13 +22,12 @@
 
 @media (min-width: 481px) and (max-width: 767px) {
 
-	body { padding-bottom: 44.6rem }
-
 	/** Reset scroll btn **/
 	#reset-btn {
 		bottom: 20px;
 		right: 20px;
 	}
+	
 }
 
 /* 
@@ -37,8 +36,6 @@
 */
 
 @media (min-width: 320px) and (max-width: 480px) {
-
-	body { padding-bottom: 44.5rem }
 
 	/** Reset scroll btn **/
 	#reset-btn {

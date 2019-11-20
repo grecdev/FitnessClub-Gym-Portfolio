@@ -22,9 +22,9 @@
 	width: 100vw;
 	height: 100vh;
 
-	& > * {
-		height: 100%;
+	.login-form, .login-showcase {
 		width: 50%;
+		height: 100%;
 	}
 
 	.login-showcase { background: url('../imgs/gym-sign.jpg') no-repeat center/cover }
@@ -37,7 +37,7 @@
 		form {
 			border: 1px solid $dark-primary;
 			padding: 1.5rem 1rem 2.5rem 1rem;
-			width: 45%;
+			width: 55%;
 			@include flex(column, center, center);
 
 			& > a:hover { text-decoration: underline }
@@ -64,41 +64,39 @@
 
 		.facebook-login {
 			background: #3e5c99;
-			padding: .6rem .6rem .6rem .2rem;
+			padding: .6rem;
 			@include font(.9rem, $white, 300);
 			display: block;
 			position: relative;
 			@include flex(row, center, center);
 
 			i {
-				margin: 0;
 				position: absolute;
-				left: 20px;
+				left: 5%;
 			}
 
 			&:hover { background: lighten(#3e5c99, 10%) }
 		}
 
 		.form-box:nth-child(2) {
+			position: relative;
 			
 			p {
-				position: relative;
-				display: inline-block;
 				@include font(.8rem, $dark-primary, 500);
 			}
-
-			p::before, p::after {
+			
+			&::before, &::after {
 				content: '';
 				position: absolute;
 				top: 50%;
 				transform: translateY(-50%);
+				width: 20%;
+				height: 1.5px;
 				background: $dark-primary;
-				width: 25px;
-				height: 1px;
 			}
 
-			p::before { left: -40px }
-			p::after { right: -40px }
+			&::before { left: 25% }
+			&::after { right: 25% }
 		}
 
 		p {
@@ -113,5 +111,3 @@
 		}
 	}
 }
-
-.padding-none { padding: 0 }

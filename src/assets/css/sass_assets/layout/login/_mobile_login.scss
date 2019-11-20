@@ -2,7 +2,6 @@
   ##Device = Laptops, Desktops
   ##Screen = B/w 1025px to 1280px
 */
-
 @media (min-width: 1025px) and (max-width: 1280px) {
 	
 	#login-container .login-form .facebook-login { font-size: .75rem }
@@ -13,27 +12,45 @@
   ##Device = Tablets, Ipads (portrait)
   ##Screen = B/w 768px to 1024px
 */
-
 @media (min-width: 768px) and (max-width: 1024px) {
   
   #login-container {
+		@include flex(column, center, center);
+
+		.login-showcase { display: none }
 		
 		.login-form {
+			width: 65%;
 
-			.facebook-login {
-				font-size: .7rem;
-	
-				span { margin-left: 1rem }
-	
-				i { left: 5px }
+			h2 { margin-bottom: 1rem }
+			
+			form {
+				justify-content: space-between;
+				width: 100%;
+				padding: 1rem;
 			}
 
-			form > a { font-size: .75rem }
+			.facebook-login {
+				font-size: 1.5rem;
+				padding: .85rem;
 
-			.form-box button { font-size: .8rem }
+				i { font-size: inherit }
+			}
+
+			.form-box {
+
+				&:nth-child(2) p { font-size: 1.3rem }
+
+				input, ::placeholder { font-size: 1.3rem }
+
+				input { padding: .5rem }
+
+				button { font-size: 1.15rem }
+			}
+			
+			p { font-size: 1rem }
 		}
 	}
-  
 }
 
 /* 
@@ -47,248 +64,166 @@
   
 }
 
-/*** Custom ***/
+/*** Custom Iphone X / Pixel 2XL - landscape ***/
 @media (min-width: 812px) and (max-width: 824px) and (orientation: landscape) {
   
-	#login-container {
+	// #login-container {
+	// 	@include flex(column, center, center);
 
-		@include flex(column, center, center);
-
-		.login-showcase { display: none }
+	// 	.login-showcase { display: none }
 		
-		.login-form {
+	// 	.login-form {
+	// 		width: 65%;
 
-			h2 {
-				font-size: 1rem;
-				margin-bottom: .5rem;
-			}
+	// 		h2 { margin-bottom: 1rem }
+			
+	// 		form {
+	// 			justify-content: space-between;
+	// 			width: 100%;
+	// 			padding: 1rem;
+	// 		}
 
-			.facebook-login {
-				font-size: .7rem;
-	
-				span { margin-left: 1rem }
-	
-				i { left: 5px }
-			}
+	// 		.facebook-login {
+	// 			font-size: 1.5rem;
+	// 			padding: .85rem;
 
-			form > a { font-size: .75rem }
+	// 			i { font-size: inherit }
+	// 		}
 
-			.form-box button { font-size: .8rem }
-		}
-	}
+	// 		.form-box {
+
+	// 			&:nth-child(2) p { font-size: 1.3rem }
+
+	// 			input, ::placeholder { font-size: 1.3rem }
+
+	// 			input { padding: .5rem }
+
+	// 			button { font-size: 1.15rem }
+	// 		}
+			
+	// 		p { font-size: 1rem }
+	// 	}
+
+	// }
+
 }
 
 /* 
   ##Device = Low Resolution Tablets, Mobiles (Landscape)
   ##Screen = B/w 481px to 767px
 */
-
 @media (min-width: 481px) and (max-width: 767px) {
   
   #login-container {
-
 		@include flex(column, center, center);
 
 		.login-showcase { display: none }
 		
 		.login-form {
+			width: 65%;
+
+			h2 { margin-bottom: 1rem }
 			
 			form {
+				justify-content: space-between;
 				width: 100%;
 				padding: 1rem;
 			}
 
-			h2 {
-				font-size: 1rem;
-				margin-bottom: .5rem;
-			}
-
 			.facebook-login {
-				font-size: .6rem;
-	
-				span { margin-left: 1rem }
-	
-				i { left: 30px }
+				font-size: 1.5rem;
+				padding: .85rem;
+
+				i { font-size: inherit }
 			}
 
-			.form-box button { font-size: .65rem }
+			.form-box {
 
-			form > a { font-size: .7rem }
+				&:nth-child(2) p { font-size: 1.3rem }
 
-			& > p { font-size: .7rem }
+				input, ::placeholder { font-size: 1.3rem }
+
+				input { padding: .5rem }
+
+				button { font-size: 1.15rem }
+			}
+			
+			p { font-size: 1rem }
 		}
 	}
-  
 }
 
 /* 
   ##Device = Most of the Smartphones Mobiles (Portrait)
   ##Screen = B/w 320px to 479px
 */
-
 @media (min-width: 320px) and (max-width: 480px) {
   
   #login-container {
-
 		@include flex(column, center, center);
 
 		.login-showcase { display: none }
 		
 		.login-form {
-			
-			form {
-				width: 100%;
-				padding: 1rem;
-			}
-
-			h2 {
-				font-size: 1rem;
-				margin-bottom: .5rem;
-			}
-
-			.facebook-login {
-				font-size: .6rem;
-	
-				span { margin-left: 1rem }
-	
-				i { left: 20px }
-			}
-
-			.form-box button { font-size: .65rem }
-
-			form > a { font-size: .7rem }
-
-			& > p {
-				font-size: .7rem;
-				text-align: center;
-			}
-		}
-	}
-}
-
-/*** Custom: Iphone && Pixel 2XL ***/
-@media screen and (min-width: 812px) and (max-width: 824px) {
-	#login-container {
-
-		@include flex(column, center, center);
-
-		.login-showcase { display: none }
-		
-		.login-form {
-			
-			form {
-				width: 100%;
-				padding: 1rem;
-			}
-
-			h2 {
-				font-size: 1rem;
-				margin-bottom: .5rem;
-			}
-
-			.facebook-login {
-				font-size: .6rem;
-	
-				span { margin-left: 1rem }
-	
-				i { left: 20px }
-			}
-
-			.form-box button { font-size: .65rem }
-
-			form > a { font-size: .7rem }
-
-			& > p {
-				font-size: .7rem;
-				text-align: center;
-			}
-		}
-	}
-}
-
-/*** Custom: Iphone SE (landscape) ***/
-@media screen and (max-width: 568px) {
-	#login-container {
-
-		@include flex(column, center, center);
-
-		.login-showcase { display: none }
-		
-		.login-form {
-			width: 80%;
-
-			form {
-				padding: 1rem;
-				margin: .5rem 0;
-
-				.form-box { margin-bottom: .5rem }
-			}
-
-			h2 {
-				font-size: 1rem;
-				margin-bottom: 0;
-			}
-
-			.facebook-login {
-				font-size: .6rem;
-	
-				span { margin-left: 1rem }
-	
-				i { left: 20px }
-			}
-
-			.form-box button { font-size: .65rem }
-
-			form > a { font-size: .7rem }
-
-			& > p {
-				font-size: .7rem;
-				text-align: center;
-			}
-		}
-	}
-}
-
-/*** Custom: Iphone SE (Portrait) ***/
-@media screen and (max-width: 320px) {
-	#login-container {
-
-		@include flex(column, center, center);
-
-		.login-showcase { display: none }
-		
-		.login-form {
-
 			width: 90%;
-			
-			form {
-				padding: 1rem;
-				margin: .5rem 0;
-
-				.form-box { margin-bottom: .5rem }
-			}
 
 			h2 {
-				font-size: 1rem;
-				margin-bottom: 0;
+				margin-bottom: 1rem;
+				font-size: 1.3rem;
+			}
+			
+			form {
+				justify-content: space-between;
+				width: 100%;
+				padding: 1rem;
 			}
 
 			.facebook-login {
-				font-size: .6rem;
-	
-				span { margin-left: 1rem }
-	
-				i { left: 20px }
+				font-size: 1rem;
+				padding: .7rem;
+
+				i { font-size: inherit }
 			}
 
-			.form-box button { font-size: .65rem }
+			.form-box {
 
-			form > a { font-size: .7rem }
+				&:nth-child(2) p { font-size: .9rem }
 
-			& > p {
-				font-size: .7rem;
-				text-align: center;
+				input, ::placeholder { font-size: 1rem }
+
+				input { padding: .3rem }
+
+				button { font-size: .95rem }
 			}
+			
+			p { font-size: .95rem }
 		}
 	}
+}
+
+/*** Iphone SE - landscape  ***/
+@media screen and (max-width: 568px) and (orientation: landscape) {
+	
+}
+
+/*** Iphone SE - Portrait ***/
+@media screen and (max-width: 320px) and (orientation: portrait) {
+
+	#login-container .login-form h2 { font-size: 1.1rem }
+
+	#login-container .login-form .facebook-login {
+		font-size: .8rem;
+		padding: .5rem;
+	}
+
+	#login-container .login-form .form-box:nth-child(2) p { font-size: .7rem }
+
+	#login-container .login-form .form-box input,
+	::placeholder,
+	#login-container .login-form .form-box button,
+	#login-container .login-form p,
+	#login-container .login-form form a {
+		font-size: .8rem !important;
+	}
+
 }

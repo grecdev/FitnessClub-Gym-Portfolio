@@ -90,7 +90,7 @@ class Ui {
 			if(!this.mobileDevice.test(navigator.userAgent) && document.body.id === 'home-page') setTimeout(() => this.header.classList.add('header-intro'), 1000);
 
 			// On mobile devices disable header intro animation
-			if(this.mobileDevice.test(navigator.userAgent)) this.header.classList.add('header-fixed');
+			if(this.mobileDevice.test(navigator.userAgent) && document.body.contains(this.header)) this.header.classList.add('header-fixed');
 		}
 
 	}

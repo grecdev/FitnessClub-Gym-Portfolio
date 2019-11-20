@@ -148,7 +148,6 @@
 
 @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
 	
-	.services-reset { padding: 2.6rem 0 0 0 }
 
   /*** Services showcase ***/
 	#services-showcase {
@@ -241,8 +240,6 @@
 
 @media (min-width: 481px) and (max-width: 767px) {
   
-	.services-reset { padding: 2.6rem 0 0 0 }
-
 	#services-showcase {
 
 		.services-list {
@@ -351,8 +348,6 @@
 
 @media (min-width: 320px) and (max-width: 480px) {
 	
-	.services-reset { padding: 2.7rem 0 0 0 }
-
 	.parallax-image { background-attachment: scroll !important }
 
 	.section-header h1 { font-size: 1.5rem }
@@ -419,9 +414,8 @@
 	.service-down-arrow { bottom: 0 }
 }
 
-/*** Custom: Iphone && Pixel 2XL ***/
-@media screen and (min-width: 812px) and (max-width: 824px) {
-	.services-reset { padding: 2.7rem 0 0 0 }
+/*** Iphone && Pixel 2XL - portrait ***/
+@media screen and (min-width: 812px) and (max-width: 824px) and (orientation: portrait) {
 
 	.parallax-image { background-attachment: scroll !important }
 
@@ -490,8 +484,8 @@
 	.service-down-arrow { bottom: -20px }
 }
 
-/** Custom: Iphone SE **/
-@media (max-width: 320px) {
+/** Iphone SE - portrait **/
+@media (max-width: 320px) and (orientation: portrait) {
 	#pool-area, #equipment-area, #boxing-area, #trainer-area, #dancing-area {
 		padding: 0;
 	

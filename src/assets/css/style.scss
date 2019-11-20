@@ -1,7 +1,8 @@
 // Utilities
 @import './sass_assets/utilities/variables';
 @import './sass_assets/utilities/mixins_extends';
-@import './sass_assets/utilities/reset_utility';
+@import './sass_assets/utilities/_utility';
+@import './sass_assets/utilities/utility_mobile';
 
 // Global layout
 @import './sass_assets/layout/global/header';

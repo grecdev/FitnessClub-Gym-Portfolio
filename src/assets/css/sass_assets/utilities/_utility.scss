@@ -158,7 +158,6 @@ i { margin-left: .5rem; }
 .mt-2 { margin-top: 2rem }
 
 .padding-none { padding: 0 }
-.header-space { padding-top: $header-height }
 
 /** Section headers **/
 .section-header {
@@ -180,9 +179,6 @@ i { margin-left: .5rem; }
 		transform: translateX(-50%);
 	}
 }
-
-/** For pages without header-intro animation **/
-.header-height { margin-top: $header-height }
 
 /** Parallax effect ( implemented with js ) **/
 .parallax-image { background-attachment: fixed !important }
