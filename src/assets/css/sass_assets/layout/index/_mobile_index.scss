@@ -1,8 +1,23 @@
+// Showcase animations ( i want only for desktop )
+@media (min-width: 1025px) {
+
+	.fade-left { transform: translateX(-100px) }
+	.fade-right { transform: translateX(100px) }
+
+	.fade-left, .fade-right {
+		animation: animation-reset 600ms ease-in-out forwards;
+		opacity: 0;
+	}
+	
+	.delay-1 { animation-delay: 1s }
+	.delay-2 { animation-delay: 1.4s }
+	.delay-3 { animation-delay: 1.8s }
+}
+
 /* 
   ##Device = Laptops, Desktops
   ##Screen = B/w 1025px to 1280px
 */
-
 @media (min-width: 1025px) and (max-width: 1280px) {
   
   /** Subscription section **/

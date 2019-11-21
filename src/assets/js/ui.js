@@ -98,7 +98,7 @@ class Ui {
 		if(e.type === 'DOMContentLoaded') {
 
 			// On Desktop devices and home page enable header intro animation
-			if(!this.mobileDevice.test(navigator.userAgent) && document.body.id === 'home-page') setTimeout(() => this.header.classList.add('header-intro'), 1000);
+			if(!this.mobileDevice.test(navigator.userAgent) && document.body.id === 'home-page') setTimeout(() => this.header.classList.add('header-intro'), 500);
 
 			// On mobile devices disable header intro animation
 			if(this.mobileDevice.test(navigator.userAgent) && document.body.contains(this.header)) this.header.classList.add('header-fixed');
@@ -231,7 +231,6 @@ class Ui {
 
 		if(e.type === 'submit') {
 			// Submit variable state
-			// Using this when we check for all inputs
 			let submit;
 
 			// This array is compared to the number of all inputs
@@ -261,6 +260,7 @@ class Ui {
 
 				this.alert('Form has been successfully submited !', 'success', true, e.target);
 
+				// Submit the form
 				submit = true;
 			}
 
