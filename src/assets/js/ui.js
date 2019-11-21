@@ -27,6 +27,8 @@ class Ui {
 
 			// Event toggle state
 			if(e.target.dataset.eventToggle === 'true') {
+				this.mobile_menu.classList.remove('header-mobile-visible');
+
 				jump(`#${section}`, {duration: scrollSpeed, offset: -50});
 
 				// Toggle event state for all links (prevent multiple clicks trigger)
@@ -99,21 +101,18 @@ class Ui {
 	parallaxImage(e) {
 		// Get all parallax background images
 		// DOMContentLoaded => so the images are in the position, if we disable the DOMContentLoaded event the images will be in the position only when we scroll
-		if(e.type === 'scroll' || e.type === 'DOMContentLoaded') {
+		if((e.type === 'scroll' || e.type === 'DOMContentLoaded') && !this.mobileDevice.test(navigator.userAgent)) {
+			const backgroundImages = document.querySelectorAll('.parallax-image');
 
-			if(this.mobileDevice.test(navigator.userAgent)) {
-				const backgroundImages = document.querySelectorAll('.parallax-image');
-	
-				backgroundImages.forEach(image => {
-					// Get the position of each image on Y / top axis
-					let pos = Math.floor(image.getBoundingClientRect().top) / 3;
-				
-					// Set the style
-					image.style.backgroundPosition = `center ${pos}px`;
-				});
-	
-				requestAnimationFrame(ui.parallaxImage);
-			}
+			backgroundImages.forEach(image => {
+				// Get the position of each image on Y / top axis
+				let pos = Math.floor(image.getBoundingClientRect().top) / 3;
+			
+				// Set the style
+				image.style.backgroundPosition = `center ${pos}px`;
+			});
+
+			requestAnimationFrame(ui.parallaxImage);
 		}
 	}
 
@@ -151,8 +150,8 @@ class Ui {
 	// Show / Hide mobile header menu
 	mobileHeader(e) {
 		// Click on icon or parent element
-		if(e.target.parentElement === this.showMobile_menu || e.target === this.showMobile_menu) this.mobile_menu.classList.add('test');
-		else if(e.target.parentElement === this.hideMobile_menu || e.target === this.hideMobile_menu) this.mobile_menu.classList.remove('test');
+		if(e.target.parentElement === this.showMobile_menu || e.target === this.showMobile_menu) this.mobile_menu.classList.add('header-mobile-visible');
+		else if(e.target.parentElement === this.hideMobile_menu || e.target === this.hideMobile_menu) this.mobile_menu.classList.remove('header-mobile-visible');
 	}
 
 	showcaseAnimation(e) {

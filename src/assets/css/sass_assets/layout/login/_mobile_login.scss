@@ -1,6 +1,6 @@
 /* Ipad PRO - Landscape */
 @media only screen and (min-width: 1024px) and (max-height: 1366px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 1.5) {
-	.login-page-padding { padding: 0 }
+	
 }
 
 /* 
@@ -19,7 +19,7 @@
 */
 @media (min-width: 768px) and (max-width: 1024px) {
   
-  .login-page-padding { padding: 0 }
+  
   
   #login-container {
 		@include flex(column, center, center);
@@ -70,7 +70,7 @@
 
 @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
 
-	.login-page-padding { padding: 0 }
+	
   
   #login-container {
 		@include flex(column, center, center);
@@ -219,7 +219,7 @@
 */
 @media (min-width: 320px) and (max-width: 480px) {
 
-	.login-page-padding { padding: 0 }
+	
   
   #login-container {
 		@include flex(column, center, center);
