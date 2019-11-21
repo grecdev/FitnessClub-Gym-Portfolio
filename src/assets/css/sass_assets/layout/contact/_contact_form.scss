@@ -11,6 +11,8 @@
 
 			.form-box {
 				margin: 1rem 0;
+				@include flex(row, space-between, center);
+				flex-wrap: wrap;
 
 				input, textarea {
 					outline: none;
@@ -38,10 +40,12 @@
 
 				input { width: 49% }
 			}
-			// .form-box:nth-child(1) 
+			
 			.form-box:nth-child(2) input { width: 100% }
 			
 			.form-box:last-child { @include flex(row, center, center) }
+
+			button { margin: 0 auto }
 		}
 
 

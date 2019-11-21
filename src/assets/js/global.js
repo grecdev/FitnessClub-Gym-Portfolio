@@ -11,6 +11,30 @@ export const globalFunctionality = (function() {
 		
 		document.addEventListener('DOMContentLoaded', load);
 
+		// In case we have multiple fields that only requires numbers
+		// Only need to add .letter-disabled class and everything works properly :)
+		ui.letter_disabled.forEach(input => {
+
+			input.addEventListener('keydown', (e) => {
+
+				ui.disableLetters(e);
+
+				e.stopPropagation();
+			});
+
+		});
+
+		ui.text_field.forEach(input => {
+
+			input.addEventListener('blur', (e) => {
+
+				ui.regexValidation(e);
+
+				e.stopPropagation();
+			});
+
+		});
+
 		// Only on pages that have reset scroll btn
 		if(document.body.contains(ui.resetScroll_btn)) ui.resetScroll_btn.addEventListener('click', resetScroll);
 
@@ -32,8 +56,6 @@ export const globalFunctionality = (function() {
 			ui.parallaxImage(e);
 
 			ui.headerAnimation(e);
-
-			ui.showcaseAnimation(e);
 			
 			e.stopPropagation();
 		}

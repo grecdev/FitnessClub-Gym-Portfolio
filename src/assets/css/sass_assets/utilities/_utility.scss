@@ -225,3 +225,20 @@ i { margin-left: .5rem; }
 	transform: scale(1);
 	opacity: 1;
 }
+
+/** Regex alert **/
+.regex-alert {
+	width: 100%;
+	padding: .5rem;
+	margin-top: 1rem;
+	border: 2px solid $dark-primary;
+}
+
+.regex-error {
+	background: $pink;
+	color: $white;
+}
+.regex-success { background: $green-eton }
+
+.input-error { border-color: $pink !important }
+.input-success { border-color: $green-eton !important }

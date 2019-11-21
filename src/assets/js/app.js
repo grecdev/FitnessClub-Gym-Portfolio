@@ -17,10 +17,11 @@ import "../css/style.scss";
 require('es6-promise').polyfill();
 require('isomorphic-fetch');
 
-import { headerFunctionality } from './index/header.js';
-import { showcaseFunctionality } from './index/showcase.js';
+import { headerFunctionality } from './index_page/header.js';
+import { showcaseFunctionality } from './index_page/showcase.js';
 import { globalFunctionality } from './global.js';
-import { servicesPage } from './services page/services.js';
+import { servicesPage } from './services_page/services.js';
+import { contactPage } from './contact_page/contact.js';
 
 globalFunctionality.init();
 
@@ -28,5 +29,5 @@ globalFunctionality.init();
 headerFunctionality.init();
 showcaseFunctionality.init();
 
-// Services page
 servicesPage.init();
+contactPage.init();

@@ -5,15 +5,24 @@ class Ui {
 		// Ui elements
 		this.header = document.getElementById('main-header');
 		this.header_links = document.querySelector('#header-navbar .main-list');
+		this.contact_form = document.querySelector('form[name="contact-form"]');
 		// Buttons
 		this.downArrow = document.querySelectorAll('.service-down-arrow');
 		this.upArrow = document.querySelectorAll('.service-up-arrow');
 		this.resetScroll_btn = document.getElementById('reset-btn');
 		this.showMobile_menu = document.getElementById('show-mobile-menu');
 		this.hideMobile_menu = document.getElementById('hide-mobile-menu');
+		this.form_btn = document.getElementById('form-btn');
 		// Menus
 		this.mobile_menu = document.querySelector('.bar-menu-container');
 		this.mobileDevice = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i;
+		// Inputs
+		this.letter_disabled = document.querySelectorAll('.letter-disabled');
+		this.text_field = document.querySelectorAll('.text-field');
+		this.name_input = document.getElementById('name-input');
+		this.email_input = document.getElementById('email-input');
+		this.phone_input = document.getElementById('phone-input');
+		this.message_input = document.getElementById('message-input');
 	}
 
 	// Smooth scroll click
@@ -154,10 +163,191 @@ class Ui {
 		else if(e.target.parentElement === this.hideMobile_menu || e.target === this.hideMobile_menu) this.mobile_menu.classList.remove('header-mobile-visible');
 	}
 
-	showcaseAnimation(e) {
+	disableLetters(e) {
+		// Disable shift
+		if(e.shiftKey) e.preventDefault();
 
-		console.log('showcaseAnimation');
+		/* Available Keys:
 
+			Numpad + normal keyboard numbers
+			+ && - and parentheses
+			Space && Ctrl + a && Backspace
+			dot
+			arrow keys
+			Tab
+
+		*/
+		if(e.which >= 48 && e.which <= 57 || e.which >= 96 && e.which <= 105 || e.which === 189 || e.which === 187 || e.which === 8 || e.which === 32 || e.which === 17 || e.which === 107 || e.which === 109 || e.ctrlKey || e.which === 190 || e.which === 110 || e.which >= 37 && e.which <= 40 || e.which === 9 || e.which === 123 || e.which === 116 || e.which === 191) return true;
+		else e.preventDefault();
+	}
+
+	regexValidation(e) {
+
+		const regex = {
+			/*
+			email@gmail.com / ro / co / co.uk / fr
+			email@yahoo.com / ro / co / co.uk / fr
+			email@hotmail.com / ro / co / co.uk / fr
+			email@aol.com / ro / co / co.uk / fr
+			*/
+			emailRegex: /^[\w\W]+\@{1}(gmail|yahoo|hotmail|aol)\.(com|ro|co|co\.uk|fr)+$/g,
+			letterRegex: /^[aA-zZ\s-,]{3,}$/,
+			/* 
+			Phone format
+			0777123456
+			0777 123 456
+			0777-123-456
+			+44 123 456 789
+			+40 123 456 789
+			+40123456789
+			+40-123-456-789
+			(1234) 567 890
+			(555) 555-1234
+		*/
+			phoneRegex: /^\+?(\(\+\d{2,3}\)?)?[\s-\.]?(\(?\d+\)?)[\s-\.]?(\d+)[\s-\.]?(\d+)$/g
+		};
+
+		if(e.type === 'blur') {
+
+			if(e.target === this.name_input) {
+				if(regex.letterRegex.test(this.name_input.value)) this.alert(null, 'success', false, e.target);
+				else this.alert(`Name is invalid, please type again.`, 'error', false, e.target);
+			}
+
+			if(e.target === this.email_input) {
+				if(regex.emailRegex.test(this.email_input.value)) this.alert(null, 'success', false, e.target);
+				else this.alert(`Email is invalid, please type again.`, 'error', false, e.target);
+			}
+
+			if(e.target === this.phone_input) {
+				if(regex.phoneRegex.test(this.phone_input.value)) this.alert(null, 'success', false, e.target);
+				else this.alert(`Phone Number is invalid, please type again.`, 'error', false, e.target);
+			}
+
+			if(e.target === this.message_input && this.message_input.value.length > 0) this.alert(null, 'success', false, e.target);
+
+			if(e.target.value === '') this.alert(`${e.target.placeholder} is empty, please fill the input.`, 'error', false, e.target);
+		}
+
+		if(e.type === 'submit') {
+			// Submit variable state
+			// Using this when we check for all inputs
+			let submit;
+
+			// This array is compared to the number of all inputs
+			const filledInputs = [];
+
+			this.text_field.forEach(input => {
+
+				// If inputs are not corectly filled / blank
+				if(!input.classList.contains('input-filled')) {
+
+					// Display the alert
+					this.alert('All inputs are required !', 'error', true, e.target);
+					// Highlight the inputs
+					input.classList.add('input-error');
+					// Reset the wrong / blank inputs
+					setTimeout(() => input.classList.remove('input-error'), 2000);
+					// Don't submit the form
+					submit = false;
+
+				}
+				// Get all the inputs that are correct
+				else filledInputs.push(input);
+			});
+
+			// If the number of correct inputs is the same as all inputs that means all the inputs are correct filled :)
+			if(filledInputs.length === this.text_field.length) {
+
+				this.alert('Form has been successfully submited !', 'success', true, e.target);
+
+				submit = true;
+			}
+
+			console.log('Form has been submited ?', submit);
+			return submit;
+		}
+		
+	}
+
+	alert(message, alertType, multiple, target) {
+		// message = obviously
+		// alertType = success / error
+		// multiple = true (when submiting the form and check all inputs) / false (single input)
+		// target = when we need to use the event object
+
+		// Create the alert element and add message
+		const p = document.createElement('p');
+		p.appendChild(document.createTextNode(message));
+
+		if(alertType === 'error') {
+			// Remove error, so we have only one
+			document.querySelectorAll('.regex-alert').forEach(error => error.remove());
+
+			// Add the error styling
+			p.classList.add('regex-alert', 'text-center', 'regex-error');
+
+			// Single input
+			if(!multiple) {
+
+				// If input is not valid remove the input correct validation class (input-filled);
+				target.classList.remove('input-filled');
+				target.classList.add('input-error');
+
+				// For individual input add the regex error
+				target.parentElement.insertAdjacentElement('beforeend', p);
+
+				if(target.value === '') target.classList.remove('input-filled');
+			} 
+			else {
+				// Add the regex alert to the DOM && other error styling to elements
+				target.insertAdjacentElement('beforeend', p);
+				this.form_btn.classList.add('input-error');
+
+				// Reset the regex alert
+				this.text_field.forEach(input => input.classList.remove('input-success'));
+				
+				setTimeout(() => {
+					this.form_btn.classList.remove('input-error');
+					p.remove();
+				}, 2000);
+			}
+		}
+
+		if(alertType === 'success') {
+			// Remove error, so we have only one
+			document.querySelectorAll('.regex-alert').forEach(error => error.remove());
+			
+			// Single input
+			if(!multiple) {
+				
+				target.classList.remove('input-error');
+
+				target.classList.add('input-success', 'input-filled');
+
+				setTimeout(() => target.classList.remove('input-success'), 1000);
+
+			}
+			else {
+				// Add the regex alert to the DOM && other error styling to elements
+				target.insertAdjacentElement('beforeend', p);
+				p.classList.add('regex-success', 'regex-alert');
+				this.form_btn.classList.add('input-success');
+
+				// Reset the regex alert
+				this.text_field.forEach(input => {
+					input.classList.remove('input-error', 'input-filled');
+
+					input.value = '';
+				});
+				
+				setTimeout(() => {
+					this.form_btn.classList.remove('input-success');
+					p.remove();
+				}, 2000);
+			}
+
+		}
 	}
 }
 
