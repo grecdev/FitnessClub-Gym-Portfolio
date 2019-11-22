@@ -15,7 +15,7 @@ class Ui {
 		this.form_btn = document.getElementById('form-btn');
 		// Menus
 		this.mobile_menu = document.querySelector('.bar-menu-container');
-		this.mobileDevice = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i;
+		this.isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i;
 		// Inputs
 		this.letter_disabled = document.querySelectorAll('.letter-disabled');
 		this.text_field = document.querySelectorAll('.text-field');
@@ -71,16 +71,16 @@ class Ui {
 		// Get the scroll position
 		const currentPosition = Math.floor(window.pageYOffset);
 
-		if((e.type === 'scroll' || e.type === 'DOMContentLoaded') && !this.mobileDevice.test(navigator.userAgent)) {
+		if((e.type === 'scroll' || e.type === 'DOMContentLoaded') && !this.isMobile.test(navigator.userAgent)) {
 
 			// If we scroll show animation for home page
-			if(document.body.id === 'home-page' && !this.mobileDevice.test(navigator.userAgent)) {
+			if(document.body.id === 'home-page' && !this.isMobile.test(navigator.userAgent)) {
 
 				// Make header visible / hidden
 				if(currentPosition > 1) ui.header.classList.add('header-fixed');
 				else ui.header.classList.remove('header-fixed');
 	
-				if(!this.mobileDevice.test(navigator.userAgent)) {
+				if(!this.isMobile.test(navigator.userAgent)) {
 
 					// Make header link active when section is in viewport for SERVICES section
 					if(currentPosition >= 650 && currentPosition <= 1000) document.querySelector('#header-desktop .main-list').children[0].children[0].classList.add('active');
@@ -96,12 +96,11 @@ class Ui {
 		}
 
 		if(e.type === 'DOMContentLoaded') {
-
 			// On Desktop devices and home page enable header intro animation
-			if(!this.mobileDevice.test(navigator.userAgent) && document.body.id === 'home-page') setTimeout(() => this.header.classList.add('header-intro'), 500);
+			if(!this.isMobile.test(navigator.userAgent) && document.body.id === 'home-page') setTimeout(() => this.header.classList.add('header-intro'), 500);
 
 			// On mobile devices disable header intro animation
-			if(this.mobileDevice.test(navigator.userAgent) && document.body.contains(this.header)) this.header.classList.add('header-fixed');
+			if(this.isMobile.test(navigator.userAgent) && document.body.contains(this.header)) this.header.classList.add('header-fixed');
 		}
 
 	}
@@ -110,7 +109,7 @@ class Ui {
 	parallaxImage(e) {
 		// Get all parallax background images
 		// DOMContentLoaded => so the images are in the position, if we disable the DOMContentLoaded event the images will be in the position only when we scroll
-		if((e.type === 'scroll' || e.type === 'DOMContentLoaded') && !this.mobileDevice.test(navigator.userAgent)) {
+		if((e.type === 'scroll' || e.type === 'DOMContentLoaded') && !this.isMobile.test(navigator.userAgent)) {
 			const backgroundImages = document.querySelectorAll('.parallax-image');
 
 			backgroundImages.forEach(image => {
