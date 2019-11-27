@@ -42,6 +42,13 @@ npm install
 3. Home page intro showcase and header animation
 4. Hover animations
 
+### :bowtie: Contribuitors:
+
+Grecu Alexandru aka [`grecdev`]()
+
+### License:
+
+This project is licensed under the MIT License - see the [LICENSE.md](https://github.com/grecdev/FitnessClub-Gym-Portfolio/blob/master/LICENSE.md) file for details
 
 ***Additional information:***
 
