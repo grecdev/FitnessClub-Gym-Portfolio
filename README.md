@@ -4,7 +4,7 @@ The place where you can build your dream body. Come check it out.
 
 :computer: Live preview: [in progress]()
 
-#### To properly run the website on your local machine:
+### To properly run the website on your local machine:
 
 **Installing:**
 
@@ -25,7 +25,7 @@ npm install
 
 2. `npm run build` - To get all production files
 
-#### I used the following technologies for this project:**
+### I used the following technologies for this project:
 
 - Semantic HTML5
 - [Sass](https://sass-lang.com/) (with `.scss` extension / syntax, see more details [here](https://sass-lang.com/documentation/syntax))
@@ -35,7 +35,7 @@ npm install
 - [Webpack](https://github.com/webpack/webpack)
 - For `version control system` i used [Git](https://git-scm.com/)
 
-#### Features for this website:
+### Features for this website:
 
 1. Smooth Scroll (more on services page)
 2. Form regex validation (see on contact page)
@@ -43,7 +43,7 @@ npm install
 4. Hover animations
 
 
-#### *Additional information:*
+***Additional information:***
 
 :iphone: Check for `responsive design` in chrome: 
 
