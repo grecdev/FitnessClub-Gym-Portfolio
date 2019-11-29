@@ -8,7 +8,7 @@ The place where you can build your dream body. Come check it out.
 
 **Installing:**
 
-1. [Node.js](https://nodejs.org/en/download/)
+1. Make sure you have the latest version of [Node.js](https://nodejs.org/en/download/)
 
 2. [node package manager](https://docs.npmjs.com/about-npm/), run the following command in the `CLI` (command line interface):
 ```
