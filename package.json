@@ -1,11 +1,15 @@
 {
-  "name": "development_environment",
+  "name": "fitness-gym",
   "version": "1.0.0",
-  "description": "Development Environment",
+  "description": "",
   "main": "app.js",
   "scripts": {
     "start": "webpack-dev-server --config webpack.dev.js --content-base src/ --open",
     "build": "webpack --config webpack.prod.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/grecdev/FitnessClub-Gym-Portfolio.git"
   },
   "author": "grecdev",
   "license": "ISC",
