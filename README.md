@@ -59,9 +59,6 @@ This project is licensed under the MIT License - see the [LICENSE.md](https://gi
 1. Open `developer console` pressing `F12`
 2. Click on the `Toggle Device Toolbar` button or press `Ctrl + Shift + M`
 
-- Optimised Images
-- Basic SEO
-
 You can check for website performance with `google audit` (it checks for individual page):
 
 1. Open `developer console` pressing `F12`
