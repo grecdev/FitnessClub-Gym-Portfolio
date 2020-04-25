@@ -61,6 +61,11 @@ This project is licensed under the MIT License - see the [LICENSE.md](https://gi
 
 You can check for website performance with `google audit` (it checks for individual page):
 
-1. Open `developer console` pressing `F12`
-2. Select `Audits` tab
-3. Press `Run audits` blue button on the bottom of the tab
+1. Open an `incognito tab`. ( Disables extenstions, and it works better )
+
+- Windows | Linux, | Chrome OS: `Press Ctrl + Shift + n`.
+- Mac: `Press ⌘ + Shift + n`.
+
+2. Open `developer console` pressing `F12`
+3. Select `Audits` tab
+4. Press `Run audits` blue button on the bottom of the tab
