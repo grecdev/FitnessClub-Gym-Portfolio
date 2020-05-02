@@ -59,6 +59,8 @@ This project is licensed under the MIT License - see the [LICENSE.md](https://gi
 1. Open `developer console` pressing `F12`
 2. Click on the `Toggle Device Toolbar` button or press `Ctrl + Shift + M`
 
+(make sure you `refresh` the page each time you change the mobile device)
+
 You can check for website performance with `google audit` (it checks for individual page):
 
 1. Open an `incognito tab`. ( Disables extenstions, and it works better )
