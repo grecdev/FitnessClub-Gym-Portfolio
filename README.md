@@ -39,8 +39,8 @@ npm install
 
 ### Features for this website:
 
-1. Smooth Scroll (more on services page)
-2. Form regex validation (see on contact page)
+1. Smooth Scroll
+2. Form regex validation
 3. Home page intro showcase and header animation
 
 ### :bowtie: Contribuitors:
