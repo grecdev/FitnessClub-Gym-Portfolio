@@ -18,7 +18,6 @@ require('es6-promise').polyfill();
 require('isomorphic-fetch');
 
 import { headerFunctionality } from './index_page/header.js';
-import { showcaseFunctionality } from './index_page/showcase.js';
 import { globalFunctionality } from './global.js';
 import { servicesPage } from './services_page/services.js';
 import { contactPage } from './contact_page/contact.js';
@@ -27,7 +26,6 @@ globalFunctionality.init();
 
 // Index page
 headerFunctionality.init();
-showcaseFunctionality.init();
 
 servicesPage.init();
 contactPage.init();
