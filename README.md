@@ -1,6 +1,6 @@
 # GrecFitnessClub
 
-The place where you can build your dream body. Come check it out.
+You want to look like Arnold ? Well... you will never look like him but still can come to our gym.
 
 :computer: Live preview: [in progress]()
 
@@ -29,7 +29,7 @@ npm install
 
 ### I used the following technologies for this project:
 
-- Semantic HTML5
+- HTML5
 - [Sass](https://sass-lang.com/) (with `.scss` extension / syntax, see more details [here](https://sass-lang.com/documentation/syntax))
 - Media Queries ( Responsive Design )
 - Vanilla Javascript
@@ -41,7 +41,6 @@ npm install
 
 1. Smooth Scroll
 2. Form regex validation
-3. Home page intro showcase and header animation
 
 ### :bowtie: Contribuitors:
 
