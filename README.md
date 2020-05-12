@@ -39,7 +39,7 @@ npm install
 
 ### Features for this website:
 
-1. Smooth Scroll
+1. [Smooth scroll](http://callmecavs.com/jump.js/)
 2. Form regex validation
 
 ### :bowtie: Contribuitors:
